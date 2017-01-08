@@ -1,5 +1,6 @@
 package com.suyashsrijan.forcedoze;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -7,7 +8,7 @@ import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.preference.CheckBoxPreference;
+import android.preference.SwitchPreference;
 import android.preference.Preference;
 import android.preference.PreferenceCategory;
 import android.preference.PreferenceFragment;
@@ -15,8 +16,7 @@ import android.preference.PreferenceManager;
 import android.preference.PreferenceScreen;
 import android.provider.Settings;
 import android.support.v4.content.LocalBroadcastManager;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
+import android.app.AlertDialog;
 import android.util.Log;
 import android.view.MenuItem;
 
@@ -30,7 +30,7 @@ import java.util.List;
 
 import eu.chainfire.libsuperuser.Shell;
 
-public class SettingsActivity extends AppCompatActivity {
+public class SettingsActivity extends Activity {
     public static String TAG = "ForceDoze";
     static MaterialDialog progressDialog1 = null;
     static boolean isSuAvailable = false;
@@ -38,10 +38,6 @@ public class SettingsActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        if (getSupportActionBar() != null) {
-            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        }
 
         getFragmentManager().beginTransaction()
                 .replace(android.R.id.content, new SettingsFragment())
@@ -75,7 +71,6 @@ public class SettingsActivity extends AppCompatActivity {
             super.onCreate(savedInstanceState);
             addPreferencesFromResource(R.xml.prefs);
             PreferenceScreen preferenceScreen = (PreferenceScreen) findPreference("preferenceScreen");
-            PreferenceCategory xposedSettings = (PreferenceCategory) findPreference("xposedSettings");
             PreferenceCategory mainSettings = (PreferenceCategory) findPreference("mainSettings");
             PreferenceCategory dozeSettings = (PreferenceCategory) findPreference("dozeSettings");
             Preference resetForceDozePref = (Preference) findPreference("resetForceDoze");
@@ -83,12 +78,11 @@ public class SettingsActivity extends AppCompatActivity {
             Preference clearDozeStats = (Preference) findPreference("resetDozeStats");
             Preference dozeDelay = (Preference) findPreference("dozeEnterDelay");
             Preference usePermanentDoze = (Preference) findPreference("usePermanentDoze");
-            final Preference xposedSensorWorkaround = (Preference) findPreference("useXposedSensorWorkaround");
             Preference nonRootSensorWorkaround = (Preference) findPreference("useNonRootSensorWorkaround");
             Preference enableSensors = (Preference) findPreference("enableSensors");
             Preference turnOffDataInDoze = (Preference) findPreference("turnOffDataInDoze");
             Preference autoRotateBrightnessFix = (Preference) findPreference("autoRotateAndBrightnessFix");
-            CheckBoxPreference autoRotateFixPref = (CheckBoxPreference) findPreference("autoRotateAndBrightnessFix");
+            SwitchPreference autoRotateFixPref = (SwitchPreference) findPreference("autoRotateAndBrightnessFix");
 
             resetForceDozePref.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
                 @Override
@@ -170,7 +164,6 @@ public class SettingsActivity extends AppCompatActivity {
                             Log.i(TAG, "SU available: " + Boolean.toString(result));
                             if (isSuAvailable) {
                                 Log.i(TAG, "Phone is rooted and SU permission granted");
-                                startActivity(new Intent(getActivity(), LogActivity.class));
                             } else {
                                 Log.i(TAG, "SU permission denied or not available");
                                 AlertDialog.Builder builder = new AlertDialog.Builder(context, R.style.AppCompatAlertDialogStyle);
@@ -250,77 +243,6 @@ public class SettingsActivity extends AppCompatActivity {
                 }
             });
 
-            xposedSensorWorkaround.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
-                @Override
-                public boolean onPreferenceChange(Preference preference, Object o) {
-                    final boolean newValue = (boolean) o;
-                    progressDialog1 = new MaterialDialog.Builder(getActivity())
-                            .title(getString(R.string.please_wait_text))
-                            .cancelable(false)
-                            .autoDismiss(false)
-                            .content(getString(R.string.requesting_su_access_text))
-                            .progress(true, 0)
-                            .show();
-                    Log.i(TAG, "Check if SU is available, and request SU permission if it is");
-                    Tasks.executeInBackground(getActivity(), new BackgroundWork<Boolean>() {
-                        @Override
-                        public Boolean doInBackground() throws Exception {
-                            return Shell.SU.available();
-                        }
-                    }, new Completion<Boolean>() {
-                        @Override
-                        public void onSuccess(Context context, Boolean result) {
-                            if (progressDialog1 != null) {
-                                progressDialog1.dismiss();
-                            }
-                            isSuAvailable = result;
-                            Log.i(TAG, "SU available: " + Boolean.toString(result));
-                            if (isSuAvailable) {
-                                SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
-                                SharedPreferences.Editor editor = sharedPreferences.edit();
-                                if (newValue) {
-                                    editor.putBoolean("enableSensors", true);
-                                    editor.putBoolean("useNonRootSensorWorkaround", false);
-                                    editor.apply();
-                                }
-                                Log.i(TAG, "Phone is rooted and SU permission granted");
-                                executeCommand("chmod 664 /data/data/com.suyashsrijan.forcedoze/shared_prefs/com.suyashsrijan.forcedoze_preferences.xml");
-                                executeCommand("chmod 755 /data/data/com.suyashsrijan.forcedoze/shared_prefs");
-                                AlertDialog.Builder builder = new AlertDialog.Builder(context, R.style.AppCompatAlertDialogStyle);
-                                builder.setTitle(getString(R.string.reboot_required_dialog_title));
-                                builder.setMessage(getString(R.string.reboot_required_dialog_text));
-                                builder.setPositiveButton(getString(R.string.okay_button_text), new DialogInterface.OnClickListener() {
-                                    @Override
-                                    public void onClick(DialogInterface dialogInterface, int i) {
-                                        dialogInterface.dismiss();
-                                    }
-                                });
-                                builder.show();
-
-                            } else {
-                                Log.i(TAG, "SU permission denied or not available");
-                                AlertDialog.Builder builder = new AlertDialog.Builder(context, R.style.AppCompatAlertDialogStyle);
-                                builder.setTitle(getString(R.string.error_text));
-                                builder.setMessage(getString(R.string.su_perm_denied_msg));
-                                builder.setPositiveButton(getString(R.string.close_button_text), new DialogInterface.OnClickListener() {
-                                    @Override
-                                    public void onClick(DialogInterface dialogInterface, int i) {
-                                        dialogInterface.dismiss();
-                                    }
-                                });
-                                builder.show();
-                            }
-                        }
-
-                        @Override
-                        public void onError(Context context, Exception e) {
-                            Log.e(TAG, "Error querying SU: " + e.getMessage());
-                        }
-                    });
-                    return true;
-                }
-            });
-
             nonRootSensorWorkaround.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
                 @Override
                 public boolean onPreferenceChange(Preference preference, Object o) {
@@ -329,7 +251,6 @@ public class SettingsActivity extends AppCompatActivity {
                     SharedPreferences.Editor editor = sharedPreferences.edit();
                     if (newValue) {
                         editor.putBoolean("enableSensors", true);
-                        editor.putBoolean("useXposedSensorWorkaround", false);
                         editor.apply();
                     }
                     return true;
@@ -394,28 +315,10 @@ public class SettingsActivity extends AppCompatActivity {
                 }
             });
 
-            if (!Utils.isXposedInstalled(getContext())) {
-                preferenceScreen.removePreference(xposedSettings);
-            }
-
             SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
             isSuAvailable = sharedPreferences.getBoolean("isSuAvailable", false);
 
-            if (sharedPreferences.getBoolean("useXposedSensorWorkaround", false)) {
-                mainSettings.removePreference(enableSensors);
-                mainSettings.removePreference(autoRotateBrightnessFix);
-                dozeSettings.removePreference(nonRootSensorWorkaround);
-            }
-
-            if (Utils.isXposedInstalled(getContext())) {
-                if (Utils.checkForAutoPowerModesFlag()) {
-                    usePermanentDoze.setEnabled(false);
-                    usePermanentDoze.setSummary(R.string.device_supports_doze_text);
-                }
-            }
-
             if (sharedPreferences.getBoolean("useNonRootSensorWorkaround", false)) {
-                xposedSettings.removePreference(xposedSensorWorkaround);
                 mainSettings.removePreference(autoRotateBrightnessFix);
                 mainSettings.removePreference(enableSensors);
             }

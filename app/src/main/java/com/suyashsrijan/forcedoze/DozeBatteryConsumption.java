@@ -1,11 +1,11 @@
 package com.suyashsrijan.forcedoze;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v4.content.LocalBroadcastManager;
-import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ListView;
@@ -15,7 +15,7 @@ import java.util.Collections;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
-public class DozeBatteryConsumption extends AppCompatActivity {
+public class DozeBatteryConsumption extends Activity {
     ArrayList<BatteryConsumptionItem> batteryConsumptionItems;
     Set<String> dozeUsageStats;
     ListView listView;

@@ -1,9 +1,9 @@
 package com.suyashsrijan.forcedoze;
 
+import android.app.Activity;
 import android.content.DialogInterface;
 import android.os.Bundle;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
+import android.app.AlertDialog;
 import android.view.MenuItem;
 import android.view.View;
 
@@ -14,7 +14,7 @@ import de.psdev.licensesdialog.model.Notice;
 import de.psdev.licensesdialog.model.Notices;
 import io.github.eliseomartelli.simplecustomtabs.CustomTabs;
 
-public class AboutAppActivity extends AppCompatActivity {
+public class AboutAppActivity extends Activity {
 
     CustomTabs.Warmer warmer;
     @Override
@@ -24,10 +24,6 @@ public class AboutAppActivity extends AppCompatActivity {
 
         warmer = CustomTabs.with(getApplicationContext()).warm();
 
-        if (getSupportActionBar() != null) {
-            getSupportActionBar().setElevation(0f);
-            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        }
     }
 
     @Override
@@ -76,8 +72,7 @@ public class AboutAppActivity extends AppCompatActivity {
         CustomTabs.with(getApplicationContext())
                 .setStyle(new CustomTabs.Style(getApplicationContext())
                         .setShowTitle(true)
-                        .setExitAnimation(android.R.anim.slide_in_left, android.R.anim.slide_out_right)
-                        .setToolbarColor(R.color.colorPrimary))
+                        .setExitAnimation(android.R.anim.slide_in_left, android.R.anim.slide_out_right))
                 .openUrl("https://play.google.com/apps/testing/com.suyashsrijan.forcedoze", this);
     }
 }

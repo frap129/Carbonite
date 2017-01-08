@@ -1,18 +1,17 @@
 package com.suyashsrijan.forcedoze;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.preference.PreferenceActivity;
+import android.preference.PreferenceFragment;
 import android.preference.PreferenceManager;
-import android.support.design.widget.CoordinatorLayout;
-import android.support.design.widget.Snackbar;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.SwitchCompat;
+import android.app.AlertDialog;
+import android.widget.Switch;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -27,11 +26,10 @@ import com.nanotasks.Tasks;
 
 import java.util.List;
 
-import de.cketti.library.changelog.ChangeLog;
 import eu.chainfire.libsuperuser.Shell;
 import io.github.eliseomartelli.simplecustomtabs.CustomTabs;
 
-public class MainActivity extends AppCompatActivity implements CompoundButton.OnCheckedChangeListener {
+public class MainActivity extends Activity implements CompoundButton.OnCheckedChangeListener {
     public static String TAG = "ForceDoze";
     SharedPreferences settings;
     SharedPreferences.Editor editor;
@@ -42,19 +40,15 @@ public class MainActivity extends AppCompatActivity implements CompoundButton.On
     Boolean isDumpPermGranted = false;
     Boolean ignoreLockscreenTimeout = true;
     Boolean showDonateDevDialog = true;
-    SwitchCompat toggleForceDozeSwitch;
+    Switch toggleForceDozeSwitch;
     MaterialDialog progressDialog = null;
     TextView textViewStatus;
-    CoordinatorLayout coordinatorLayout;
     CustomTabs.Warmer warmer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        if (getSupportActionBar() != null) {
-            getSupportActionBar().setElevation(0.0f);
-        }
         warmer = CustomTabs.with(getApplicationContext()).warm();
         settings = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         isDozeEnabledByOEM = Utils.checkForAutoPowerModesFlag();
@@ -63,19 +57,10 @@ public class MainActivity extends AppCompatActivity implements CompoundButton.On
         isDozeDisabled = settings.getBoolean("isDozeDisabled", false);
         isSuAvailable = settings.getBoolean("isSuAvailable", false);
         ignoreLockscreenTimeout = settings.getBoolean("ignoreLockscreenTimeout", true);
-        toggleForceDozeSwitch = (SwitchCompat) findViewById(R.id.switch1);
+        toggleForceDozeSwitch = (Switch) findViewById(R.id.switch1);
         isDumpPermGranted = Utils.isDumpPermissionGranted(getApplicationContext());
-        textViewStatus = (TextView) findViewById(R.id.textView2);
 
         toggleForceDozeSwitch.setOnCheckedChangeListener(null);
-
-        if (serviceEnabled) {
-            textViewStatus.setText(R.string.service_active);
-            toggleForceDozeSwitch.setChecked(true);
-        } else {
-            textViewStatus.setText(R.string.service_inactive);
-            toggleForceDozeSwitch.setChecked(false);
-        }
 
         toggleForceDozeSwitch.setOnCheckedChangeListener(this);
 
@@ -83,7 +68,6 @@ public class MainActivity extends AppCompatActivity implements CompoundButton.On
             Log.i(TAG, "android.permission.DUMP already granted, skipping SU check");
             if (serviceEnabled) {
                 toggleForceDozeSwitch.setChecked(true);
-                textViewStatus.setText(R.string.service_active);
                 if (!Utils.isMyServiceRunning(ForceDozeService.class, MainActivity.this)) {
                     Log.i(TAG, "Starting ForceDozeService");
                     startService(new Intent(this, ForceDozeService.class));
@@ -91,17 +75,9 @@ public class MainActivity extends AppCompatActivity implements CompoundButton.On
                     Log.i(TAG, "Service already running");
                 }
             } else {
-                textViewStatus.setText(R.string.service_inactive);
                 Log.i(TAG, "Service not enabled");
             }
-            ChangeLog cl = new ChangeLog(this);
-            if (cl.isFirstRun()) {
-                cl.getFullLogDialog().show();
-            } else {
-                if (showDonateDevDialog) {
-                    showDonateDevDialog();
-                }
-            }
+
 
         } else {
             progressDialog = new MaterialDialog.Builder(this)
@@ -175,11 +151,6 @@ public class MainActivity extends AppCompatActivity implements CompoundButton.On
                         });
                         builder.show();
                     }
-
-                    ChangeLog cl = new ChangeLog(MainActivity.this);
-                    if (cl.isFirstRun()) {
-                        cl.getFullLogDialog().show();
-                    }
                 }
 
                 @Override
@@ -189,20 +160,6 @@ public class MainActivity extends AppCompatActivity implements CompoundButton.On
             });
         }
 
-        if (Utils.isLockscreenTimeoutValueTooHigh(getContentResolver())) {
-            if (!ignoreLockscreenTimeout) {
-                coordinatorLayout = (CoordinatorLayout) findViewById(R.id.coordinatorLayout);
-                Snackbar.make(coordinatorLayout, R.string.lockscreen_timeout_snackbar_text, Snackbar.LENGTH_INDEFINITE)
-                        .setAction(R.string.more_info_text, new View.OnClickListener() {
-                            @Override
-                            public void onClick(View view) {
-                                showLockScreenTimeoutInfoDialog();
-                            }
-                        })
-                        .setActionTextColor(Color.RED)
-                        .show();
-            }
-        }
     }
 
     @Override
@@ -214,10 +171,6 @@ public class MainActivity extends AppCompatActivity implements CompoundButton.On
     @Override
     public boolean onPrepareOptionsMenu(Menu menu) {
         isDumpPermGranted = Utils.isDumpPermissionGranted(getApplicationContext());
-
-        if (isDozeEnabledByOEM) {
-            menu.getItem(2).setVisible(false);
-        }
 
         return super.onPrepareOptionsMenu(menu);
     }
@@ -232,18 +185,6 @@ public class MainActivity extends AppCompatActivity implements CompoundButton.On
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
         switch (id) {
-            case R.id.action_toggle_doze:
-                showEnableDozeOnUnsupportedDeviceDialog();
-                break;
-            case R.id.action_donate_dev:
-                openDonatePage();
-                break;
-            case R.id.action_doze_batterystats:
-                startActivity(new Intent(MainActivity.this, DozeBatteryStatsActivity.class));
-                break;
-            case R.id.action_app_settings:
-                startActivity(new Intent(MainActivity.this, SettingsActivity.class));
-                break;
             case R.id.action_doze_more_info:
                 showMoreInfoDialog();
                 break;
@@ -257,7 +198,6 @@ public class MainActivity extends AppCompatActivity implements CompoundButton.On
             editor = settings.edit();
             editor.putBoolean("serviceEnabled", true);
             editor.apply();
-            textViewStatus.setText(R.string.service_active);
             if (!Utils.isMyServiceRunning(ForceDozeService.class, MainActivity.this)) {
                 Log.i(TAG, "Enabling ForceDoze");
                 startService(new Intent(MainActivity.this, ForceDozeService.class));
@@ -267,7 +207,6 @@ public class MainActivity extends AppCompatActivity implements CompoundButton.On
             editor = settings.edit();
             editor.putBoolean("serviceEnabled", false);
             editor.apply();
-            textViewStatus.setText(R.string.service_inactive);
             if (Utils.isMyServiceRunning(ForceDozeService.class, MainActivity.this)) {
                 Log.i(TAG, "Disabling ForceDoze");
                 stopService(new Intent(MainActivity.this, ForceDozeService.class));
@@ -279,8 +218,7 @@ public class MainActivity extends AppCompatActivity implements CompoundButton.On
         CustomTabs.with(getApplicationContext())
                 .setStyle(new CustomTabs.Style(getApplicationContext())
                         .setShowTitle(true)
-                        .setExitAnimation(android.R.anim.slide_in_left, android.R.anim.slide_out_right)
-                        .setToolbarColor(R.color.colorPrimary))
+                        .setExitAnimation(android.R.anim.slide_in_left, android.R.anim.slide_out_right))
                 .openUrl("https://www.paypal.me/suyashsrijan", this);
     }
 
@@ -305,27 +243,12 @@ public class MainActivity extends AppCompatActivity implements CompoundButton.On
                     executeCommand("dumpsys deviceidle disable");
                     executeCommand("dumpsys deviceidle enable");
                 }
-                if (Utils.isXposedInstalled(getApplicationContext())) {
-                    showEnableXposedModuleDialog();
-                }
                 dialogInterface.dismiss();
             }
         });
         builder.show();
     }
 
-    public void showEnableXposedModuleDialog() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this, R.style.AppCompatAlertDialogStyle);
-        builder.setTitle(getString(R.string.xposed_detected_dialog_title));
-        builder.setMessage(getString(R.string.xposed_detected_dialog_text));
-        builder.setPositiveButton(getString(R.string.close_button_text), new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-                dialogInterface.dismiss();
-            }
-        });
-        builder.show();
-    }
 
     public void showRootWorkaroundInstructions() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this, R.style.AppCompatAlertDialogStyle);
@@ -453,5 +376,9 @@ public class MainActivity extends AppCompatActivity implements CompoundButton.On
                 Log.i(TAG, s);
             }
         }
+    }
+
+    public void launchSettingsActivity(View v) {
+        startActivity(new Intent(MainActivity.this, SettingsActivity.class));
     }
 }

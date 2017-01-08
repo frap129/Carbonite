@@ -1,5 +1,6 @@
 package com.suyashsrijan.forcedoze;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -8,8 +9,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.provider.Settings;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
+import android.app.AlertDialog;
 import android.text.InputType;
 import android.util.Log;
 import android.view.Menu;
@@ -27,7 +27,7 @@ import java.util.List;
 
 import eu.chainfire.libsuperuser.Shell;
 
-public class WhitelistAppsActivity extends AppCompatActivity {
+public class WhitelistAppsActivity extends Activity {
     ListView listView;
     SharedPreferences sharedPreferences;
     WhitelistAppsAdapter whitelistAppsAdapter;
@@ -42,10 +42,6 @@ public class WhitelistAppsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_whitelist_apps);
-
-        if (getSupportActionBar() != null) {
-            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        }
 
         listView = (ListView) findViewById(R.id.listView2);
         whitelistedPackages = new ArrayList<>();

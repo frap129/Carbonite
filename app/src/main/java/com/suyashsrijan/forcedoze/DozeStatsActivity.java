@@ -1,5 +1,6 @@
 package com.suyashsrijan.forcedoze;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -7,8 +8,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v4.content.LocalBroadcastManager;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
+import android.app.AlertDialog;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -24,7 +24,7 @@ import java.util.Collections;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
-public class DozeStatsActivity extends AppCompatActivity {
+public class DozeStatsActivity extends Activity {
 
     /* Old Doze stats activity left to show a compact view of Doze stats and to handle some edge cases */
 
@@ -39,10 +39,6 @@ public class DozeStatsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_doze_battery_consumption);
-
-        if (getSupportActionBar() != null) {
-            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        }
 
         listView = (ListView) findViewById(R.id.listView);
         batteryConsumptionItems = new ArrayList<>();
