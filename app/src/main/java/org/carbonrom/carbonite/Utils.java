@@ -44,10 +44,6 @@ public class Utils {
         return context.checkCallingOrSelfPermission(Manifest.permission.READ_PHONE_STATE) == PackageManager.PERMISSION_GRANTED;
     }
 
-    public static boolean isReadLogsPermissionGranted(Context context) {
-        return context.checkCallingOrSelfPermission(Manifest.permission.READ_LOGS) == PackageManager.PERMISSION_GRANTED;
-    }
-
     public static boolean isDevicePowerPermissionGranted(Context context) {
         return context.checkCallingOrSelfPermission("android.permission.DEVICE_POWER") == PackageManager.PERMISSION_GRANTED;
     }
@@ -55,14 +51,6 @@ public class Utils {
     public static boolean isConnectedToCharger(Context context) {
         Intent batteryIntent = context.registerReceiver(null, new IntentFilter(Intent.ACTION_BATTERY_CHANGED));
         return (batteryIntent != null && batteryIntent.getIntExtra("plugged", 0) != 0);
-    }
-
-    public static String getDateCurrentTimeZone(long timestamp) {
-        //return DateFormat.getDateTimeInstance(DateFormat.DEFAULT, DateFormat.DEFAULT, Locale.UK).format(new Date(timestamp));
-        Calendar cal = Calendar.getInstance();
-        cal.setTimeInMillis(timestamp);
-        SimpleDateFormat dateFormat = new SimpleDateFormat("dd MMMM yyyy HH:mm:ss");
-        return dateFormat.format(cal.getTime());
     }
 
     public static int getBatteryLevel2(Context context) {
@@ -88,25 +76,6 @@ public class Utils {
 
     public static boolean checkForAutoPowerModesFlag() {
         return Resources.getSystem().getBoolean(Resources.getSystem().getIdentifier("config_enableAutoPowerModes", "bool", "android"));
-    }
-
-    public static boolean isDeviceRunningOnNPreview() {
-        return ("N".equals(Build.VERSION.CODENAME));
-    }
-
-    public static int diffInMins(long start, long end) {
-        int diff = (int) ((end - start) / 1000) / 60;
-        return diff;
-    }
-
-    public static String timeSpentString(long start, long end) {
-        long diff = end - start;
-        long diffSeconds = diff / 1000 % 60;
-        long diffMinutes = diff / (60 * 1000) % 60;
-        long diffHours = diff / (60 * 60 * 1000) % 24;
-
-        String timeSpent = diffHours + " hours, " + diffMinutes + " mins, " + diffSeconds + " secs";
-        return timeSpent;
     }
 
     public static void setAutoRotateEnabled(Context context, boolean enabled) {
@@ -152,14 +121,9 @@ public class Utils {
         return Settings.Secure.getInt(contentResolver, "lock_screen_lock_after_timeout", 5000) >= 5000;
     }
 
-    public static float getLockscreenTimeoutValue(ContentResolver contentResolver) {
-        return (Settings.Secure.getInt(contentResolver, "lock_screen_lock_after_timeout", 5000) / 1000f / 60f);
-    }
-
     public static boolean doesSettingExist(String settingName) {
         String[] updatableSettings = {"turnOffDataInDoze", "turnOffWiFiInDoze", "ignoreLockscreenTimeout",
-                "dozeEnterDelay", "useAutoRotateAndBrightnessFix", "enableSensors", "disableWhenCharging",
-                "showPersistentNotif", "useXposedSensorWorkaround", "useNonRootSensorWorkaround"};
+                "dozeEnterDelay", "useAutoRotateAndBrightnessFix", "enableSensors", "disableWhenCharging", "useNonRootSensorWorkaround"};
         return Arrays.asList(updatableSettings).contains(settingName);
     }
 
@@ -175,17 +139,6 @@ public class Utils {
         // Since all the settings loaded dynamically by the service except dozeEnterDelay are bools,
         // return true only if settingName != dozeEnterDelay
         return !settingName.equals("dozeEnterDelay");
-    }
-
-    public static boolean isXposedInstalled(Context context) {
-        PackageManager packageManager = context.getPackageManager();
-        List<ApplicationInfo> applicationInfoList = packageManager.getInstalledApplications(PackageManager.GET_META_DATA);
-        for (ApplicationInfo applicationInfo : applicationInfoList) {
-            if (applicationInfo.packageName.equals("de.robv.android.xposed.installer")) {
-                return true;
-            }
-        }
-        return false;
     }
 
     public static boolean isScreenOn(Context context) {

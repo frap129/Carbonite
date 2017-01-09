@@ -12,7 +12,7 @@ public class SettingsChangeReceiver extends BroadcastReceiver {
 
     @Override
     public void onReceive(Context context, Intent intent) {
-        Log.i(TAG, "com.suyashsrijan.forcedoze.CHANGE_SETTING broadcast intent received");
+        Log.i(TAG, "org.carbonrom.carbonite.CHANGE_SETTING broadcast intent received");
         final String settingName = intent.getStringExtra("settingName");
         final String settingValue = intent.getStringExtra("settingValue");
 

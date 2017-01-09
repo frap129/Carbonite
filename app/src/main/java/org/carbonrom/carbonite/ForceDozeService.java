@@ -101,11 +101,9 @@ public class ForceDozeService extends Service {
             }
         }
 
-        if (Utils.isDeviceRunningOnNPreview()) {
-            if (!Utils.isDevicePowerPermissionGranted(getApplicationContext())) {
-                if (isSuAvailable) {
-                    grantDevicePowerPermission();
-                }
+        if (!Utils.isDevicePowerPermissionGranted(getApplicationContext())) {
+            if (isSuAvailable) {
+                grantDevicePowerPermission();
             }
         }
 
@@ -167,23 +165,23 @@ public class ForceDozeService extends Service {
     }
 
     public void grantDumpPermission() {
-        Log.i(TAG, "Granting android.permission.DUMP to com.suyashsrijan.forcedoze");
-        executeCommand("pm grant com.suyashsrijan.forcedoze android.permission.DUMP");
+        Log.i(TAG, "Granting android.permission.DUMP to org.carbonrom.carbonite");
+        executeCommand("pm grant org.carbonrom.carbonite android.permission.DUMP");
     }
 
     public void grantDevicePowerPermission() {
-        Log.i(TAG, "Granting android.permission.DEVICE_POWER to com.suyashsrijan.forcedoze");
-        executeCommand("pm grant com.suyashsrijan.forcedoze android.permission.DEVICE_POWER");
+        Log.i(TAG, "Granting android.permission.DEVICE_POWER to org.carbonrom.carbonite");
+        executeCommand("pm grant org.carbonrom.carbonite android.permission.DEVICE_POWER");
     }
 
     public void grantReadPhoneStatePermission() {
-        Log.i(TAG, "Granting android.permission.READ_PHONE_STATE to com.suyashsrijan.forcedoze");
-        executeCommand("pm grant com.suyashsrijan.forcedoze android.permission.READ_PHONE_STATE");
+        Log.i(TAG, "Granting android.permission.READ_PHONE_STATE to org.carbonrom.carbonite");
+        executeCommand("pm grant org.carbonrom.carbonite android.permission.READ_PHONE_STATE");
     }
 
     public void addSelfToDozeWhitelist() {
         Log.i(TAG, "Adding service to Doze whitelist for stability");
-        executeCommand("dumpsys deviceidle whitelist +com.suyashsrijan.forcedoze");
+        executeCommand("dumpsys deviceidle whitelist +org.carbonrom.carbonite");
     }
 
     public void enterDoze(Context context) {
@@ -198,11 +196,7 @@ public class ForceDozeService extends Service {
                 }
 
                 Log.i(TAG, "Entering Doze");
-                if (Utils.isDeviceRunningOnNPreview()) {
-                    executeCommand("dumpsys deviceidle force-idle deep");
-                } else {
-                    executeCommand("dumpsys deviceidle force-idle");
-                }
+                executeCommand("dumpsys deviceidle force-idle deep");
 
                 dozeUsageData.add(Long.toString(System.currentTimeMillis()).concat(",").concat(Float.toString(Utils.getBatteryLevel2(getApplicationContext()))).concat(",").concat("ENTER"));
                 saveDozeDataStats();
@@ -249,11 +243,7 @@ public class ForceDozeService extends Service {
 
     public void exitDoze() {
         lastKnownState = "ACTIVE";
-        if (Utils.isDeviceRunningOnNPreview()) {
-            executeCommand("dumpsys deviceidle unforce");
-        } else {
-            executeCommand("dumpsys deviceidle step");
-        }
+        executeCommand("dumpsys deviceidle unforce");
 
         dozeUsageData.add(Long.toString(System.currentTimeMillis()).concat(",").concat(Float.toString(Utils.getBatteryLevel2(getApplicationContext()))).concat(",").concat("EXIT"));
         saveDozeDataStats();

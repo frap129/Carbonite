@@ -151,8 +151,8 @@ public class SettingsActivity extends Activity {
                                 Log.i(TAG, "SU available: " + Boolean.toString(result));
                                 if (isSuAvailable) {
                                     Log.i(TAG, "Phone is rooted and SU permission granted");
-                                    Log.i(TAG, "Granting android.permission.READ_PHONE_STATE to com.suyashsrijan.forcedoze");
-                                    executeCommand("pm grant com.suyashsrijan.forcedoze android.permission.READ_PHONE_STATE");
+                                    Log.i(TAG, "Granting android.permission.READ_PHONE_STATE to org.carbonrom.carbonite");
+                                    executeCommand("pm grant org.carbonrom.carbonite android.permission.READ_PHONE_STATE");
                                 } else {
                                     Log.i(TAG, "SU permission denied or not available");
                                     AlertDialog.Builder builder = new AlertDialog.Builder(context, R.style.AppCompatAlertDialogStyle);

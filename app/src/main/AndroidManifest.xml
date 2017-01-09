@@ -49,21 +49,21 @@
             android:name="org.carbonrom.carbonite.EnableForceDozeService"
             android:enabled="true">
             <intent-filter>
-                <action android:name="com.suyashsrijan.forcedoze.ENABLE_FORCEDOZE" />
+                <action android:name="org.carbonrom.carbonite.ENABLE_FORCEDOZE" />
             </intent-filter>
         </receiver>
         <receiver
             android:name="org.carbonrom.carbonite.DisableForceDozeService"
             android:enabled="true">
             <intent-filter>
-                <action android:name="com.suyashsrijan.forcedoze.DISABLE_FORCEDOZE" />
+                <action android:name="org.carbonrom.carbonite.DISABLE_FORCEDOZE" />
             </intent-filter>
         </receiver>
         <receiver
             android:name="org.carbonrom.carbonite.SettingsChangeReceiver"
             android:enabled="true">
             <intent-filter>
-                <action android:name="com.suyashsrijan.forcedoze.CHANGE_SETTING" />
+                <action android:name="org.carbonrom.carbonite.CHANGE_SETTING" />
             </intent-filter>
         </receiver>
 

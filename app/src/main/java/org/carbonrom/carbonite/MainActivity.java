@@ -99,16 +99,14 @@ public class MainActivity extends Activity implements CompoundButton.OnCheckedCh
                         editor.apply();
                         if (!Utils.isDumpPermissionGranted(getApplicationContext())) {
                             if (isSuAvailable) {
-                                Log.i(TAG, "Granting android.permission.DUMP to com.suyashsrijan.forcedoze");
-                                executeCommand("pm grant com.suyashsrijan.forcedoze android.permission.DUMP");
-                                Log.i(TAG, "Granting android.permission.READ_PHONE_STATE to com.suyashsrijan.forcedoze");
-                                executeCommand("pm grant com.suyashsrijan.forcedoze android.permission.READ_PHONE_STATE");
+                                Log.i(TAG, "Granting android.permission.DUMP to org.carbonrom.carbonite");
+                                executeCommand("pm grant org.carbonrom.carbonite android.permission.DUMP");
+                                Log.i(TAG, "Granting android.permission.READ_PHONE_STATE to org.carbonrom.carbonite");
+                                executeCommand("pm grant org.carbonrom.carbonite android.permission.READ_PHONE_STATE");
                             }
                         }
                         if (!Utils.isDevicePowerPermissionGranted(getApplicationContext())) {
-                            if (Utils.isDeviceRunningOnNPreview()) {
-                                executeCommand("pm grant com.suyashsrijan.forcedoze android.permission.DEVICE_POWER");
-                            }
+                            executeCommand("pm grant org.carbonrom.carbonite android.permission.DEVICE_POWER");
                         }
                         if (serviceEnabled) {
                             toggleForceDozeSwitch.setChecked(true);
@@ -213,7 +211,7 @@ public class MainActivity extends Activity implements CompoundButton.OnCheckedCh
                 dialogInterface.dismiss();
                 Intent sendIntent = new Intent();
                 sendIntent.setAction(Intent.ACTION_SEND);
-                sendIntent.putExtra(Intent.EXTRA_TEXT, "adb -d shell pm grant com.suyashsrijan.forcedoze android.permission.DUMP");
+                sendIntent.putExtra(Intent.EXTRA_TEXT, "adb -d shell pm grant org.carbonrom.carbonite android.permission.DUMP");
                 sendIntent.setType("text/plain");
                 startActivity(sendIntent);
 
