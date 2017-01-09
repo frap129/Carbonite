@@ -4,10 +4,6 @@
         "source": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.1/res/layout/abc_action_bar_up_container.xml"
     },
     {
-        "merged": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/res/merged/debug/layout/md_stub_actionbuttons.xml",
-        "source": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/exploded-aar/com.github.afollestad.material-dialogs/core/0.8.5.8/res/layout/md_stub_actionbuttons.xml"
-    },
-    {
         "merged": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/res/merged/debug/layout/design_text_input_password_icon.xml",
         "source": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/exploded-aar/com.android.support/design/25.0.1/res/layout/design_text_input_password_icon.xml"
     },
@@ -16,28 +12,12 @@
         "source": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.1/res/layout/abc_screen_toolbar.xml"
     },
     {
-        "merged": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/res/merged/debug/layout/headline_24dp.xml",
-        "source": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/exploded-aar/com.github.dexafree/materiallist/3.2.1/res/layout/headline_24dp.xml"
-    },
-    {
         "merged": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/res/merged/debug/layout/notification_template_lines_media.xml",
         "source": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.1/res/layout/notification_template_lines_media.xml"
     },
     {
-        "merged": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/res/merged/debug/layout/md_dialog_custom.xml",
-        "source": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/exploded-aar/com.github.afollestad.material-dialogs/core/0.8.5.8/res/layout/md_dialog_custom.xml"
-    },
-    {
         "merged": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/res/merged/debug/layout/notification_template_part_time.xml",
         "source": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.1/res/layout/notification_template_part_time.xml"
-    },
-    {
-        "merged": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/res/merged/debug/layout/md_listitem_multichoice.xml",
-        "source": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/exploded-aar/com.github.afollestad.material-dialogs/core/0.8.5.8/res/layout/md_listitem_multichoice.xml"
-    },
-    {
-        "merged": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/res/merged/debug/layout/md_dialog_progress.xml",
-        "source": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/exploded-aar/com.github.afollestad.material-dialogs/core/0.8.5.8/res/layout/md_dialog_progress.xml"
     },
     {
         "merged": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/res/merged/debug/layout/abc_select_dialog_material.xml",
@@ -60,28 +40,12 @@
         "source": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.1/res/layout/abc_list_menu_item_radio.xml"
     },
     {
-        "merged": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/res/merged/debug/layout/divider.xml",
-        "source": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/exploded-aar/com.github.dexafree/materiallist/3.2.1/res/layout/divider.xml"
-    },
-    {
-        "merged": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/res/merged/debug/layout/supporting_text_24dp.xml",
-        "source": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/exploded-aar/com.github.dexafree/materiallist/3.2.1/res/layout/supporting_text_24dp.xml"
-    },
-    {
         "merged": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/res/merged/debug/layout/notification_template_big_media_custom.xml",
         "source": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.1/res/layout/notification_template_big_media_custom.xml"
     },
     {
         "merged": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/res/merged/debug/layout/activity_main.xml",
         "source": "/home/frap129/StudioProjects/Carbonite/app/src/main/res/layout/activity_main.xml"
-    },
-    {
-        "merged": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/res/merged/debug/layout/material_small_image_card.xml",
-        "source": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/exploded-aar/com.github.dexafree/materiallist/3.2.1/res/layout/material_small_image_card.xml"
-    },
-    {
-        "merged": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/res/merged/debug/layout/material_big_image_card_layout.xml",
-        "source": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/exploded-aar/com.github.dexafree/materiallist/3.2.1/res/layout/material_big_image_card_layout.xml"
     },
     {
         "merged": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/res/merged/debug/layout/design_layout_tab_text.xml",
@@ -94,22 +58,6 @@
     {
         "merged": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/res/merged/debug/layout/abc_activity_chooser_view_list_item.xml",
         "source": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.1/res/layout/abc_activity_chooser_view_list_item.xml"
-    },
-    {
-        "merged": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/res/merged/debug/layout/rich_media_image.xml",
-        "source": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/exploded-aar/com.github.dexafree/materiallist/3.2.1/res/layout/rich_media_image.xml"
-    },
-    {
-        "merged": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/res/merged/debug/layout/md_listitem.xml",
-        "source": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/exploded-aar/com.github.afollestad.material-dialogs/core/0.8.5.8/res/layout/md_listitem.xml"
-    },
-    {
-        "merged": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/res/merged/debug/layout/material_image_with_buttons_card.xml",
-        "source": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/exploded-aar/com.github.dexafree/materiallist/3.2.1/res/layout/material_image_with_buttons_card.xml"
-    },
-    {
-        "merged": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/res/merged/debug/layout/md_stub_titleframe.xml",
-        "source": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/exploded-aar/com.github.afollestad.material-dialogs/core/0.8.5.8/res/layout/md_stub_titleframe.xml"
     },
     {
         "merged": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/res/merged/debug/layout/design_layout_snackbar.xml",
@@ -132,40 +80,28 @@
         "source": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/exploded-aar/com.android.support/design/25.0.1/res/layout/design_navigation_item_separator.xml"
     },
     {
-        "merged": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/res/merged/debug/layout/notification_template_big_media.xml",
-        "source": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.1/res/layout/notification_template_big_media.xml"
-    },
-    {
         "merged": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/res/merged/debug/layout/select_dialog_singlechoice_material.xml",
         "source": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.1/res/layout/select_dialog_singlechoice_material.xml"
+    },
+    {
+        "merged": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/res/merged/debug/layout/notification_template_big_media.xml",
+        "source": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.1/res/layout/notification_template_big_media.xml"
     },
     {
         "merged": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/res/merged/debug/layout/support_simple_spinner_dropdown_item.xml",
         "source": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.1/res/layout/support_simple_spinner_dropdown_item.xml"
     },
     {
-        "merged": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/res/merged/debug/layout/design_menu_item_action_area.xml",
-        "source": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/exploded-aar/com.android.support/design/25.0.1/res/layout/design_menu_item_action_area.xml"
-    },
-    {
         "merged": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/res/merged/debug/layout/design_navigation_menu.xml",
         "source": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/exploded-aar/com.android.support/design/25.0.1/res/layout/design_navigation_menu.xml"
     },
     {
+        "merged": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/res/merged/debug/layout/design_menu_item_action_area.xml",
+        "source": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/exploded-aar/com.android.support/design/25.0.1/res/layout/design_menu_item_action_area.xml"
+    },
+    {
         "merged": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/res/merged/debug/layout/design_navigation_item_header.xml",
         "source": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/exploded-aar/com.android.support/design/25.0.1/res/layout/design_navigation_item_header.xml"
-    },
-    {
-        "merged": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/res/merged/debug/layout/md_dialog_basic.xml",
-        "source": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/exploded-aar/com.github.afollestad.material-dialogs/core/0.8.5.8/res/layout/md_dialog_basic.xml"
-    },
-    {
-        "merged": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/res/merged/debug/layout/md_dialog_input.xml",
-        "source": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/exploded-aar/com.github.afollestad.material-dialogs/core/0.8.5.8/res/layout/md_dialog_input.xml"
-    },
-    {
-        "merged": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/res/merged/debug/layout/md_dialog_progress_indeterminate_horizontal.xml",
-        "source": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/exploded-aar/com.github.afollestad.material-dialogs/core/0.8.5.8/res/layout/md_dialog_progress_indeterminate_horizontal.xml"
     },
     {
         "merged": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/res/merged/debug/layout/abc_popup_menu_item_layout.xml",
@@ -180,6 +116,14 @@
         "source": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.1/res/layout/abc_dialog_title_material.xml"
     },
     {
+        "merged": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/res/merged/debug/layout/abc_screen_simple_overlay_action_mode.xml",
+        "source": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.1/res/layout/abc_screen_simple_overlay_action_mode.xml"
+    },
+    {
+        "merged": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/res/merged/debug/layout/select_dialog_multichoice_material.xml",
+        "source": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.1/res/layout/select_dialog_multichoice_material.xml"
+    },
+    {
         "merged": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/res/merged/debug/layout/abc_action_menu_item_layout.xml",
         "source": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.1/res/layout/abc_action_menu_item_layout.xml"
     },
@@ -188,36 +132,16 @@
         "source": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/exploded-aar/com.android.support/design/25.0.1/res/layout/design_bottom_sheet_dialog.xml"
     },
     {
-        "merged": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/res/merged/debug/layout/select_dialog_multichoice_material.xml",
-        "source": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.1/res/layout/select_dialog_multichoice_material.xml"
-    },
-    {
-        "merged": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/res/merged/debug/layout/abc_screen_simple_overlay_action_mode.xml",
-        "source": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.1/res/layout/abc_screen_simple_overlay_action_mode.xml"
-    },
-    {
         "merged": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/res/merged/debug/layout/abc_action_mode_close_item_material.xml",
         "source": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.1/res/layout/abc_action_mode_close_item_material.xml"
-    },
-    {
-        "merged": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/res/merged/debug/layout/md_dialog_progress_indeterminate.xml",
-        "source": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/exploded-aar/com.github.afollestad.material-dialogs/core/0.8.5.8/res/layout/md_dialog_progress_indeterminate.xml"
     },
     {
         "merged": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/res/merged/debug/layout/abc_list_menu_item_icon.xml",
         "source": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.1/res/layout/abc_list_menu_item_icon.xml"
     },
     {
-        "merged": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/res/merged/debug/layout/headline_16dp.xml",
-        "source": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/exploded-aar/com.github.dexafree/materiallist/3.2.1/res/layout/headline_16dp.xml"
-    },
-    {
         "merged": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/res/merged/debug/layout/abc_search_view.xml",
         "source": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.1/res/layout/abc_search_view.xml"
-    },
-    {
-        "merged": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/res/merged/debug/layout/md_listitem_singlechoice.xml",
-        "source": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/exploded-aar/com.github.afollestad.material-dialogs/core/0.8.5.8/res/layout/md_listitem_singlechoice.xml"
     },
     {
         "merged": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/res/merged/debug/layout/design_navigation_menu_item.xml",
@@ -252,32 +176,8 @@
         "source": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/exploded-aar/com.android.support/design/25.0.1/res/layout/design_bottom_navigation_item.xml"
     },
     {
-        "merged": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/res/merged/debug/layout/supporting_text_16dp.xml",
-        "source": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/exploded-aar/com.github.dexafree/materiallist/3.2.1/res/layout/supporting_text_16dp.xml"
-    },
-    {
         "merged": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/res/merged/debug/layout/design_navigation_item.xml",
         "source": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/exploded-aar/com.android.support/design/25.0.1/res/layout/design_navigation_item.xml"
-    },
-    {
-        "merged": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/res/merged/debug/layout/material_welcome_card_layout.xml",
-        "source": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/exploded-aar/com.github.dexafree/materiallist/3.2.1/res/layout/material_welcome_card_layout.xml"
-    },
-    {
-        "merged": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/res/merged/debug/layout/headline_image.xml",
-        "source": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/exploded-aar/com.github.dexafree/materiallist/3.2.1/res/layout/headline_image.xml"
-    },
-    {
-        "merged": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/res/merged/debug/layout/material_list_card_layout.xml",
-        "source": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/exploded-aar/com.github.dexafree/materiallist/3.2.1/res/layout/material_list_card_layout.xml"
-    },
-    {
-        "merged": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/res/merged/debug/layout/material_basic_buttons_card.xml",
-        "source": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/exploded-aar/com.github.dexafree/materiallist/3.2.1/res/layout/material_basic_buttons_card.xml"
-    },
-    {
-        "merged": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/res/merged/debug/layout/md_dialog_list.xml",
-        "source": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/exploded-aar/com.github.afollestad.material-dialogs/core/0.8.5.8/res/layout/md_dialog_list.xml"
     },
     {
         "merged": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/res/merged/debug/layout/abc_screen_simple.xml",
@@ -286,10 +186,6 @@
     {
         "merged": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/res/merged/debug/layout/abc_action_mode_bar.xml",
         "source": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.1/res/layout/abc_action_mode_bar.xml"
-    },
-    {
-        "merged": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/res/merged/debug/layout/material_basic_image_buttons_card_layout.xml",
-        "source": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/exploded-aar/com.github.dexafree/materiallist/3.2.1/res/layout/material_basic_image_buttons_card_layout.xml"
     },
     {
         "merged": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/res/merged/debug/layout/abc_list_menu_item_checkbox.xml",
@@ -314,10 +210,6 @@
     {
         "merged": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/res/merged/debug/layout/select_dialog_item_material.xml",
         "source": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.1/res/layout/select_dialog_item_material.xml"
-    },
-    {
-        "merged": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/res/merged/debug/layout/md_stub_titleframe_lesspadding.xml",
-        "source": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/exploded-aar/com.github.afollestad.material-dialogs/core/0.8.5.8/res/layout/md_stub_titleframe_lesspadding.xml"
     },
     {
         "merged": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/res/merged/debug/layout/notification_template_part_chronometer.xml",

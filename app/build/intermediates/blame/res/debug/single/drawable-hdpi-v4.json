@@ -80,10 +80,6 @@
         "source": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.1/res/drawable-hdpi-v4/abc_list_pressed_holo_dark.9.png"
     },
     {
-        "merged": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/ic_check.png",
-        "source": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/exploded-aar/com.github.dexafree/materiallist/3.2.1/res/drawable-hdpi-v4/ic_check.png"
-    },
-    {
         "merged": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/abc_btn_switch_to_on_mtrl_00001.9.png",
         "source": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.1/res/drawable-hdpi-v4/abc_btn_switch_to_on_mtrl_00001.9.png"
     },
@@ -98,10 +94,6 @@
     {
         "merged": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/notification_bg_low_normal.9.png",
         "source": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.1/res/drawable-hdpi-v4/notification_bg_low_normal.9.png"
-    },
-    {
-        "merged": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/sample_android.png",
-        "source": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/exploded-aar/com.github.dexafree/materiallist/3.2.1/res/drawable-hdpi-v4/sample_android.png"
     },
     {
         "merged": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/abc_ic_menu_share_mtrl_alpha.png",
@@ -122,10 +114,6 @@
     {
         "merged": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/abc_btn_check_to_on_mtrl_015.png",
         "source": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.1/res/drawable-hdpi-v4/abc_btn_check_to_on_mtrl_015.png"
-    },
-    {
-        "merged": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/md_nav_back.png",
-        "source": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/exploded-aar/com.github.afollestad.material-dialogs/core/0.8.5.8/res/drawable-hdpi-v4/md_nav_back.png"
     },
     {
         "merged": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/abc_ic_menu_paste_mtrl_am_alpha.png",

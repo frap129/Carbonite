@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.suyashsrijan.forcedoze.test">
+    package="org.carbonrom.carbonite.test">
 
     <uses-sdk android:minSdkVersion="25" android:targetSdkVersion="25" />
 
@@ -9,8 +9,8 @@
     </application>
 
     <instrumentation android:name="android.test.InstrumentationTestRunner"
-                     android:targetPackage="com.suyashsrijan.forcedoze"
+                     android:targetPackage="org.carbonrom.carbonite"
                      android:handleProfiling="false"
                      android:functionalTest="false"
-                     android:label="Tests for com.suyashsrijan.forcedoze"/>
+                     android:label="Tests for org.carbonrom.carbonite"/>
 </manifest>

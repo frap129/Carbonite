@@ -2,7 +2,7 @@
 manifest
 ADDED from /home/frap129/StudioProjects/Carbonite/app/src/main/AndroidManifest.xml:2:1-85:12
 	package
-		ADDED from /home/frap129/StudioProjects/Carbonite/app/src/main/AndroidManifest.xml:4:5-41
+		ADDED from /home/frap129/StudioProjects/Carbonite/app/src/main/AndroidManifest.xml:4:5-38
 		INJECTED from /home/frap129/StudioProjects/Carbonite/app/src/main/AndroidManifest.xml
 		INJECTED from /home/frap129/StudioProjects/Carbonite/app/src/main/AndroidManifest.xml
 	android:versionName
@@ -79,11 +79,11 @@ MERGED from [com.android.support:transition:25.0.1] /home/frap129/StudioProjects
 	android:theme
 		ADDED from /home/frap129/StudioProjects/Carbonite/app/src/main/AndroidManifest.xml:26:9-40
 	android:name
-		ADDED from /home/frap129/StudioProjects/Carbonite/app/src/main/AndroidManifest.xml:21:9-38
-activity#com.suyashsrijan.forcedoze.MainActivity
+		ADDED from /home/frap129/StudioProjects/Carbonite/app/src/main/AndroidManifest.xml:21:9-61
+activity#org.carbonrom.carbonite.MainActivity
 ADDED from /home/frap129/StudioProjects/Carbonite/app/src/main/AndroidManifest.xml:27:9-34:20
 	android:name
-		ADDED from /home/frap129/StudioProjects/Carbonite/app/src/main/AndroidManifest.xml:27:19-47
+		ADDED from /home/frap129/StudioProjects/Carbonite/app/src/main/AndroidManifest.xml:27:19-70
 intent-filter#android.intent.action.MAIN+android.intent.category.DEFAULT+android.intent.category.LAUNCHER
 ADDED from /home/frap129/StudioProjects/Carbonite/app/src/main/AndroidManifest.xml:28:13-33:29
 action#android.intent.action.MAIN
@@ -98,20 +98,20 @@ category#android.intent.category.LAUNCHER
 ADDED from /home/frap129/StudioProjects/Carbonite/app/src/main/AndroidManifest.xml:32:17-77
 	android:name
 		ADDED from /home/frap129/StudioProjects/Carbonite/app/src/main/AndroidManifest.xml:32:27-74
-receiver#com.suyashsrijan.forcedoze.BootCompleteReceiver
+receiver#org.carbonrom.carbonite.BootCompleteReceiver
 ADDED from /home/frap129/StudioProjects/Carbonite/app/src/main/AndroidManifest.xml:36:9-40:20
 	android:name
-		ADDED from /home/frap129/StudioProjects/Carbonite/app/src/main/AndroidManifest.xml:36:19-55
+		ADDED from /home/frap129/StudioProjects/Carbonite/app/src/main/AndroidManifest.xml:36:19-78
 intent-filter#android.intent.action.BOOT_COMPLETED
 ADDED from /home/frap129/StudioProjects/Carbonite/app/src/main/AndroidManifest.xml:37:13-39:29
 action#android.intent.action.BOOT_COMPLETED
 ADDED from /home/frap129/StudioProjects/Carbonite/app/src/main/AndroidManifest.xml:38:17-79
 	android:name
 		ADDED from /home/frap129/StudioProjects/Carbonite/app/src/main/AndroidManifest.xml:38:25-76
-receiver#com.suyashsrijan.forcedoze.AutoRestartOnUpdate
+receiver#org.carbonrom.carbonite.AutoRestartOnUpdate
 ADDED from /home/frap129/StudioProjects/Carbonite/app/src/main/AndroidManifest.xml:41:9-47:20
 	android:name
-		ADDED from /home/frap129/StudioProjects/Carbonite/app/src/main/AndroidManifest.xml:41:19-54
+		ADDED from /home/frap129/StudioProjects/Carbonite/app/src/main/AndroidManifest.xml:41:19-77
 intent-filter#android.intent.action.PACKAGE_REPLACED
 ADDED from /home/frap129/StudioProjects/Carbonite/app/src/main/AndroidManifest.xml:42:13-46:29
 action#android.intent.action.PACKAGE_REPLACED
@@ -122,64 +122,64 @@ data
 ADDED from /home/frap129/StudioProjects/Carbonite/app/src/main/AndroidManifest.xml:45:17-50
 	android:scheme
 		ADDED from /home/frap129/StudioProjects/Carbonite/app/src/main/AndroidManifest.xml:45:23-47
-receiver#com.suyashsrijan.forcedoze.EnableForceDozeService
+receiver#org.carbonrom.carbonite.EnableForceDozeService
 ADDED from /home/frap129/StudioProjects/Carbonite/app/src/main/AndroidManifest.xml:48:9-54:20
 	android:enabled
 		ADDED from /home/frap129/StudioProjects/Carbonite/app/src/main/AndroidManifest.xml:50:13-35
 	android:name
-		ADDED from /home/frap129/StudioProjects/Carbonite/app/src/main/AndroidManifest.xml:49:13-51
+		ADDED from /home/frap129/StudioProjects/Carbonite/app/src/main/AndroidManifest.xml:49:13-74
 intent-filter#com.suyashsrijan.forcedoze.ENABLE_FORCEDOZE
 ADDED from /home/frap129/StudioProjects/Carbonite/app/src/main/AndroidManifest.xml:51:13-53:29
 action#com.suyashsrijan.forcedoze.ENABLE_FORCEDOZE
 ADDED from /home/frap129/StudioProjects/Carbonite/app/src/main/AndroidManifest.xml:52:17-86
 	android:name
 		ADDED from /home/frap129/StudioProjects/Carbonite/app/src/main/AndroidManifest.xml:52:25-83
-receiver#com.suyashsrijan.forcedoze.DisableForceDozeService
+receiver#org.carbonrom.carbonite.DisableForceDozeService
 ADDED from /home/frap129/StudioProjects/Carbonite/app/src/main/AndroidManifest.xml:55:9-61:20
 	android:enabled
 		ADDED from /home/frap129/StudioProjects/Carbonite/app/src/main/AndroidManifest.xml:57:13-35
 	android:name
-		ADDED from /home/frap129/StudioProjects/Carbonite/app/src/main/AndroidManifest.xml:56:13-52
+		ADDED from /home/frap129/StudioProjects/Carbonite/app/src/main/AndroidManifest.xml:56:13-75
 intent-filter#com.suyashsrijan.forcedoze.DISABLE_FORCEDOZE
 ADDED from /home/frap129/StudioProjects/Carbonite/app/src/main/AndroidManifest.xml:58:13-60:29
 action#com.suyashsrijan.forcedoze.DISABLE_FORCEDOZE
 ADDED from /home/frap129/StudioProjects/Carbonite/app/src/main/AndroidManifest.xml:59:17-87
 	android:name
 		ADDED from /home/frap129/StudioProjects/Carbonite/app/src/main/AndroidManifest.xml:59:25-84
-receiver#com.suyashsrijan.forcedoze.SettingsChangeReceiver
+receiver#org.carbonrom.carbonite.SettingsChangeReceiver
 ADDED from /home/frap129/StudioProjects/Carbonite/app/src/main/AndroidManifest.xml:62:9-68:20
 	android:enabled
 		ADDED from /home/frap129/StudioProjects/Carbonite/app/src/main/AndroidManifest.xml:64:13-35
 	android:name
-		ADDED from /home/frap129/StudioProjects/Carbonite/app/src/main/AndroidManifest.xml:63:13-51
+		ADDED from /home/frap129/StudioProjects/Carbonite/app/src/main/AndroidManifest.xml:63:13-74
 intent-filter#com.suyashsrijan.forcedoze.CHANGE_SETTING
 ADDED from /home/frap129/StudioProjects/Carbonite/app/src/main/AndroidManifest.xml:65:13-67:29
 action#com.suyashsrijan.forcedoze.CHANGE_SETTING
 ADDED from /home/frap129/StudioProjects/Carbonite/app/src/main/AndroidManifest.xml:66:17-84
 	android:name
 		ADDED from /home/frap129/StudioProjects/Carbonite/app/src/main/AndroidManifest.xml:66:25-81
-service#com.suyashsrijan.forcedoze.ForceDozeService
+service#org.carbonrom.carbonite.ForceDozeService
 ADDED from /home/frap129/StudioProjects/Carbonite/app/src/main/AndroidManifest.xml:70:9-73:40
 	android:enabled
 		ADDED from /home/frap129/StudioProjects/Carbonite/app/src/main/AndroidManifest.xml:72:13-35
 	android:exported
 		ADDED from /home/frap129/StudioProjects/Carbonite/app/src/main/AndroidManifest.xml:73:13-37
 	android:name
-		ADDED from /home/frap129/StudioProjects/Carbonite/app/src/main/AndroidManifest.xml:71:13-45
-activity#com.suyashsrijan.forcedoze.SettingsActivity
+		ADDED from /home/frap129/StudioProjects/Carbonite/app/src/main/AndroidManifest.xml:71:13-68
+activity#org.carbonrom.carbonite.SettingsActivity
 ADDED from /home/frap129/StudioProjects/Carbonite/app/src/main/AndroidManifest.xml:75:9-77:40
 	android:label
 		ADDED from /home/frap129/StudioProjects/Carbonite/app/src/main/AndroidManifest.xml:77:13-37
 	android:name
-		ADDED from /home/frap129/StudioProjects/Carbonite/app/src/main/AndroidManifest.xml:76:13-45
-receiver#com.suyashsrijan.forcedoze.ReenterDoze
+		ADDED from /home/frap129/StudioProjects/Carbonite/app/src/main/AndroidManifest.xml:76:13-68
+receiver#org.carbonrom.carbonite.ReenterDoze
 ADDED from /home/frap129/StudioProjects/Carbonite/app/src/main/AndroidManifest.xml:79:9-82:39
 	android:enabled
 		ADDED from /home/frap129/StudioProjects/Carbonite/app/src/main/AndroidManifest.xml:81:13-35
 	android:exported
 		ADDED from /home/frap129/StudioProjects/Carbonite/app/src/main/AndroidManifest.xml:82:13-36
 	android:name
-		ADDED from /home/frap129/StudioProjects/Carbonite/app/src/main/AndroidManifest.xml:80:13-40
+		ADDED from /home/frap129/StudioProjects/Carbonite/app/src/main/AndroidManifest.xml:80:13-63
 uses-sdk
 INJECTED from /home/frap129/StudioProjects/Carbonite/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
 MERGED from [com.android.support:design:25.0.1] /home/frap129/StudioProjects/Carbonite/app/build/intermediates/exploded-aar/com.android.support/design/25.0.1/AndroidManifest.xml:21:5-23:62

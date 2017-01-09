@@ -76,14 +76,6 @@
         "source": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.1/res/drawable-mdpi-v4/abc_ic_star_black_48dp.png"
     },
     {
-        "merged": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/md_nav_back.png",
-        "source": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/exploded-aar/com.github.afollestad.material-dialogs/core/0.8.5.8/res/drawable-mdpi-v4/md_nav_back.png"
-    },
-    {
-        "merged": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/ic_check.png",
-        "source": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/exploded-aar/com.github.dexafree/materiallist/3.2.1/res/drawable-mdpi-v4/ic_check.png"
-    },
-    {
         "merged": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/notification_bg_normal.9.png",
         "source": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.1/res/drawable-mdpi-v4/notification_bg_normal.9.png"
     },
@@ -126,10 +118,6 @@
     {
         "merged": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/abc_popup_background_mtrl_mult.9.png",
         "source": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.1/res/drawable-mdpi-v4/abc_popup_background_mtrl_mult.9.png"
-    },
-    {
-        "merged": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/sample_android.png",
-        "source": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/exploded-aar/com.github.dexafree/materiallist/3.2.1/res/drawable-mdpi-v4/sample_android.png"
     },
     {
         "merged": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/abc_menu_hardkey_panel_mtrl_mult.9.png",

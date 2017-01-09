@@ -41,7 +41,7 @@
             android:key="useNonRootSensorWorkaround"
             android:summary="@string/motion_sensing_disable_non_root_setting_summary"
             android:title="@string/motion_sensing_disable_non_root_setting_title" />
-        <com.suyashsrijan.forcedoze.NumberPickerPreference
+        <org.carbonrom.carbonite.NumberPickerPreference
             bindSummary="false"
             max="30"
             min="0"

@@ -1,14 +1,6 @@
 [
     {
-        "merged": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/res/merged/debug/xml/changelog_master.xml",
-        "source": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/exploded-aar/de.cketti.library.changelog/ckchangelog/1.2.2/res/xml/changelog_master.xml"
-    },
-    {
         "merged": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/res/merged/debug/xml/prefs.xml",
         "source": "/home/frap129/StudioProjects/Carbonite/app/src/main/res/xml/prefs.xml"
-    },
-    {
-        "merged": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/res/merged/debug/xml/changelog.xml",
-        "source": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/exploded-aar/de.cketti.library.changelog/ckchangelog/1.2.2/res/xml/changelog.xml"
     }
 ]

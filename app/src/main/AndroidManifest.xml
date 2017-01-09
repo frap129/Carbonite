@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.suyashsrijan.forcedoze">
+    package="com.carbonrom.carbonite">
 
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
@@ -18,13 +18,13 @@
         tools:ignore="ProtectedPermissions" />
 
     <application
-        android:name=".MyApplication"
+        android:name="org.carbonrom.carbonite.MyApplication"
         android:allowBackup="true"
         android:icon="@drawable/ic_settings_carbon_fibers"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name="org.carbonrom.carbonite.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -33,12 +33,12 @@
             </intent-filter>
         </activity>
 
-        <receiver android:name=".BootCompleteReceiver">
+        <receiver android:name="org.carbonrom.carbonite.BootCompleteReceiver">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
         </receiver>
-        <receiver android:name=".AutoRestartOnUpdate">
+        <receiver android:name="org.carbonrom.carbonite.AutoRestartOnUpdate">
             <intent-filter>
                 <action android:name="android.intent.action.PACKAGE_REPLACED" />
 
@@ -46,21 +46,21 @@
             </intent-filter>
         </receiver>
         <receiver
-            android:name=".EnableForceDozeService"
+            android:name="org.carbonrom.carbonite.EnableForceDozeService"
             android:enabled="true">
             <intent-filter>
                 <action android:name="com.suyashsrijan.forcedoze.ENABLE_FORCEDOZE" />
             </intent-filter>
         </receiver>
         <receiver
-            android:name=".DisableForceDozeService"
+            android:name="org.carbonrom.carbonite.DisableForceDozeService"
             android:enabled="true">
             <intent-filter>
                 <action android:name="com.suyashsrijan.forcedoze.DISABLE_FORCEDOZE" />
             </intent-filter>
         </receiver>
         <receiver
-            android:name=".SettingsChangeReceiver"
+            android:name="org.carbonrom.carbonite.SettingsChangeReceiver"
             android:enabled="true">
             <intent-filter>
                 <action android:name="com.suyashsrijan.forcedoze.CHANGE_SETTING" />
@@ -68,16 +68,16 @@
         </receiver>
 
         <service
-            android:name=".ForceDozeService"
+            android:name="org.carbonrom.carbonite.ForceDozeService"
             android:enabled="true"
             android:exported="false" />
 
         <activity
-            android:name=".SettingsActivity"
+            android:name="org.carbonrom.carbonite.SettingsActivity"
             android:label="Settings" />
 
         <receiver
-            android:name=".ReenterDoze"
+            android:name="org.carbonrom.carbonite.ReenterDoze"
             android:enabled="true"
             android:exported="true" />
     </application>

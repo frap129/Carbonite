@@ -1,19 +1,11 @@
 [
     {
-        "merged": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/res/merged/debug/anim/popup_exit.xml",
-        "source": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/exploded-aar/com.github.afollestad.material-dialogs/core/0.8.5.8/res/anim/popup_exit.xml"
-    },
-    {
         "merged": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/res/merged/debug/anim/design_fab_in.xml",
         "source": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/exploded-aar/com.android.support/design/25.0.1/res/anim/design_fab_in.xml"
     },
     {
         "merged": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/res/merged/debug/anim/abc_fade_in.xml",
         "source": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.1/res/anim/abc_fade_in.xml"
-    },
-    {
-        "merged": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/res/merged/debug/anim/popup_enter.xml",
-        "source": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/exploded-aar/com.github.afollestad.material-dialogs/core/0.8.5.8/res/anim/popup_enter.xml"
     },
     {
         "merged": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/res/merged/debug/anim/abc_slide_out_top.xml",
@@ -30,10 +22,6 @@
     {
         "merged": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/res/merged/debug/anim/abc_slide_out_bottom.xml",
         "source": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.1/res/anim/abc_slide_out_bottom.xml"
-    },
-    {
-        "merged": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/res/merged/debug/anim/decelerate_cubic.xml",
-        "source": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/exploded-aar/com.github.afollestad.material-dialogs/core/0.8.5.8/res/anim/decelerate_cubic.xml"
     },
     {
         "merged": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/res/merged/debug/anim/abc_popup_enter.xml",
