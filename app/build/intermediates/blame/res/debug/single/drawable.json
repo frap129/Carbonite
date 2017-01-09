@@ -24,12 +24,12 @@
         "source": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/exploded-aar/com.android.support/design/25.0.1/res/drawable/navigation_empty_icon.xml"
     },
     {
-        "merged": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/res/merged/debug/drawable/abc_switch_thumb_material.xml",
-        "source": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.1/res/drawable/abc_switch_thumb_material.xml"
-    },
-    {
         "merged": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/res/merged/debug/drawable/abc_list_selector_background_transition_holo_dark.xml",
         "source": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.1/res/drawable/abc_list_selector_background_transition_holo_dark.xml"
+    },
+    {
+        "merged": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/res/merged/debug/drawable/abc_switch_thumb_material.xml",
+        "source": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.1/res/drawable/abc_switch_thumb_material.xml"
     },
     {
         "merged": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/res/merged/debug/drawable/notification_bg_low.xml",

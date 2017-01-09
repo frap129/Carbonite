@@ -17,6 +17,7 @@ import android.widget.CompoundButton;
 import android.widget.Switch;
 
 import com.carbonrom.carbonite.R;
+
 import org.carbonrom.nanotasks.BackgroundWork;
 import org.carbonrom.nanotasks.Completion;
 import org.carbonrom.nanotasks.Tasks;

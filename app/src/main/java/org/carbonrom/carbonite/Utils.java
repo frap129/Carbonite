@@ -6,23 +6,18 @@ import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.content.res.Resources;
 import android.hardware.display.DisplayManager;
 import android.media.AudioManager;
 import android.net.wifi.WifiManager;
 import android.os.BatteryManager;
-import android.os.Build;
 import android.preference.PreferenceManager;
 import android.provider.Settings;
 import android.telephony.TelephonyManager;
 import android.view.Display;
 
-import java.text.SimpleDateFormat;
 import java.util.Arrays;
-import java.util.Calendar;
-import java.util.List;
 
 public class Utils {
 
