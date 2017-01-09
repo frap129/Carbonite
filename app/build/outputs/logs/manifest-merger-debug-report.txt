@@ -128,36 +128,36 @@ ADDED from /home/frap129/StudioProjects/Carbonite/app/src/main/AndroidManifest.x
 		ADDED from /home/frap129/StudioProjects/Carbonite/app/src/main/AndroidManifest.xml:50:13-35
 	android:name
 		ADDED from /home/frap129/StudioProjects/Carbonite/app/src/main/AndroidManifest.xml:49:13-74
-intent-filter#com.suyashsrijan.forcedoze.ENABLE_FORCEDOZE
+intent-filter#org.carbonrom.carbonite.ENABLE_FORCEDOZE
 ADDED from /home/frap129/StudioProjects/Carbonite/app/src/main/AndroidManifest.xml:51:13-53:29
-action#com.suyashsrijan.forcedoze.ENABLE_FORCEDOZE
-ADDED from /home/frap129/StudioProjects/Carbonite/app/src/main/AndroidManifest.xml:52:17-86
+action#org.carbonrom.carbonite.ENABLE_FORCEDOZE
+ADDED from /home/frap129/StudioProjects/Carbonite/app/src/main/AndroidManifest.xml:52:17-83
 	android:name
-		ADDED from /home/frap129/StudioProjects/Carbonite/app/src/main/AndroidManifest.xml:52:25-83
+		ADDED from /home/frap129/StudioProjects/Carbonite/app/src/main/AndroidManifest.xml:52:25-80
 receiver#org.carbonrom.carbonite.DisableForceDozeService
 ADDED from /home/frap129/StudioProjects/Carbonite/app/src/main/AndroidManifest.xml:55:9-61:20
 	android:enabled
 		ADDED from /home/frap129/StudioProjects/Carbonite/app/src/main/AndroidManifest.xml:57:13-35
 	android:name
 		ADDED from /home/frap129/StudioProjects/Carbonite/app/src/main/AndroidManifest.xml:56:13-75
-intent-filter#com.suyashsrijan.forcedoze.DISABLE_FORCEDOZE
+intent-filter#org.carbonrom.carbonite.DISABLE_FORCEDOZE
 ADDED from /home/frap129/StudioProjects/Carbonite/app/src/main/AndroidManifest.xml:58:13-60:29
-action#com.suyashsrijan.forcedoze.DISABLE_FORCEDOZE
-ADDED from /home/frap129/StudioProjects/Carbonite/app/src/main/AndroidManifest.xml:59:17-87
+action#org.carbonrom.carbonite.DISABLE_FORCEDOZE
+ADDED from /home/frap129/StudioProjects/Carbonite/app/src/main/AndroidManifest.xml:59:17-84
 	android:name
-		ADDED from /home/frap129/StudioProjects/Carbonite/app/src/main/AndroidManifest.xml:59:25-84
+		ADDED from /home/frap129/StudioProjects/Carbonite/app/src/main/AndroidManifest.xml:59:25-81
 receiver#org.carbonrom.carbonite.SettingsChangeReceiver
 ADDED from /home/frap129/StudioProjects/Carbonite/app/src/main/AndroidManifest.xml:62:9-68:20
 	android:enabled
 		ADDED from /home/frap129/StudioProjects/Carbonite/app/src/main/AndroidManifest.xml:64:13-35
 	android:name
 		ADDED from /home/frap129/StudioProjects/Carbonite/app/src/main/AndroidManifest.xml:63:13-74
-intent-filter#com.suyashsrijan.forcedoze.CHANGE_SETTING
+intent-filter#org.carbonrom.carbonite.CHANGE_SETTING
 ADDED from /home/frap129/StudioProjects/Carbonite/app/src/main/AndroidManifest.xml:65:13-67:29
-action#com.suyashsrijan.forcedoze.CHANGE_SETTING
-ADDED from /home/frap129/StudioProjects/Carbonite/app/src/main/AndroidManifest.xml:66:17-84
+action#org.carbonrom.carbonite.CHANGE_SETTING
+ADDED from /home/frap129/StudioProjects/Carbonite/app/src/main/AndroidManifest.xml:66:17-81
 	android:name
-		ADDED from /home/frap129/StudioProjects/Carbonite/app/src/main/AndroidManifest.xml:66:25-81
+		ADDED from /home/frap129/StudioProjects/Carbonite/app/src/main/AndroidManifest.xml:66:25-78
 service#org.carbonrom.carbonite.ForceDozeService
 ADDED from /home/frap129/StudioProjects/Carbonite/app/src/main/AndroidManifest.xml:70:9-73:40
 	android:enabled
@@ -195,7 +195,6 @@ MERGED from [com.android.support:animated-vector-drawable:25.0.1] /home/frap129/
 MERGED from [com.android.support:recyclerview-v7:25.0.1] /home/frap129/StudioProjects/Carbonite/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/25.0.1/AndroidManifest.xml:20:5-43
 MERGED from [com.android.support:transition:25.0.1] /home/frap129/StudioProjects/Carbonite/app/build/intermediates/exploded-aar/com.android.support/transition/25.0.1/AndroidManifest.xml:20:5-44
 MERGED from [eu.chainfire:libsuperuser:1.0.0.201608240809] /home/frap129/StudioProjects/Carbonite/app/build/intermediates/exploded-aar/eu.chainfire/libsuperuser/1.0.0.201608240809/AndroidManifest.xml:7:5-9:41
-MERGED from [com.fabiendevos:nanotasks:1.1.0] /home/frap129/StudioProjects/Carbonite/app/build/intermediates/exploded-aar/com.fabiendevos/nanotasks/1.1.0/AndroidManifest.xml:7:5-9:41
 	tools:overrideLibrary
 		ADDED from [com.android.support:design:25.0.1] /home/frap129/StudioProjects/Carbonite/app/build/intermediates/exploded-aar/com.android.support/design/25.0.1/AndroidManifest.xml:23:9-59
 	android:targetSdkVersion

@@ -21,9 +21,9 @@ import android.util.Log;
 import android.view.MenuItem;
 
 import com.carbonrom.carbonite.R;
-import com.nanotasks.BackgroundWork;
-import com.nanotasks.Completion;
-import com.nanotasks.Tasks;
+import org.carbonrom.nanotasks.BackgroundWork;
+import org.carbonrom.nanotasks.Completion;
+import org.carbonrom.nanotasks.Tasks;
 
 import java.util.List;
 
