@@ -24,7 +24,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearance"
-        android:text="Force device in to doze mode quickly"
+        android:text="Force device into doze mode quickly"
         android:id="@+id/textView2"
         android:layout_gravity="start"
         android:textColor="?android:attr/textColorSecondary"
