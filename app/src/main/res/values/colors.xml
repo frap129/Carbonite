@@ -1,6 +1,2 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <color name="primary" >?android:attr/colorPrimary</color>
-    <color name="primaryDark">?android:attr/colorPrimaryDark</color>
-    <color name="accent">?android:attr/colorAccent</color>
-</resources>
+<resources></resources>

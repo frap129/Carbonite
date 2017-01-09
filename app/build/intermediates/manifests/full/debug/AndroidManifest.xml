@@ -61,20 +61,6 @@
             </intent-filter>
         </receiver>
         <receiver
-            android:name="com.suyashsrijan.forcedoze.AddWhiteListReceiver"
-            android:enabled="true" >
-            <intent-filter>
-                <action android:name="com.suyashsrijan.forcedoze.ADD_WHITELIST" />
-            </intent-filter>
-        </receiver>
-        <receiver
-            android:name="com.suyashsrijan.forcedoze.RemoveWhiteListReceiver"
-            android:enabled="true" >
-            <intent-filter>
-                <action android:name="com.suyashsrijan.forcedoze.REMOVE_WHITELIST" />
-            </intent-filter>
-        </receiver>
-        <receiver
             android:name="com.suyashsrijan.forcedoze.SettingsChangeReceiver"
             android:enabled="true" >
             <intent-filter>
@@ -88,23 +74,8 @@
             android:exported="false" />
 
         <activity
-            android:name="com.suyashsrijan.forcedoze.DozeStatsActivity"
-            android:label="Doze battery stats (old)" />
-        <activity
-            android:name="com.suyashsrijan.forcedoze.DozeBatteryStatsActivity"
-            android:label="Doze battery stats" />
-        <activity
-            android:name="com.suyashsrijan.forcedoze.WhitelistAppsActivity"
-            android:label="Whitelist" />
-        <activity
             android:name="com.suyashsrijan.forcedoze.SettingsActivity"
             android:label="Settings" />
-        <activity
-            android:name="com.suyashsrijan.forcedoze.PackageChooserActivity"
-            android:label="Package chooser" />
-        <activity
-            android:name="com.suyashsrijan.forcedoze.AboutAppActivity"
-            android:label="About" />
 
         <receiver
             android:name="com.suyashsrijan.forcedoze.ReenterDoze"

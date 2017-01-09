@@ -37,27 +37,19 @@ public class Utils {
     }
 
     public static boolean isDumpPermissionGranted(Context context) {
-        if (context.checkCallingOrSelfPermission(Manifest.permission.DUMP) == PackageManager.PERMISSION_GRANTED)
-            return true;
-        else return false;
+        return context.checkCallingOrSelfPermission(Manifest.permission.DUMP) == PackageManager.PERMISSION_GRANTED;
     }
 
     public static boolean isReadPhoneStatePermissionGranted(Context context) {
-        if (context.checkCallingOrSelfPermission(Manifest.permission.READ_PHONE_STATE) == PackageManager.PERMISSION_GRANTED)
-            return true;
-        else return false;
+        return context.checkCallingOrSelfPermission(Manifest.permission.READ_PHONE_STATE) == PackageManager.PERMISSION_GRANTED;
     }
 
     public static boolean isReadLogsPermissionGranted(Context context) {
-        if (context.checkCallingOrSelfPermission(Manifest.permission.READ_LOGS) == PackageManager.PERMISSION_GRANTED)
-            return true;
-        else return false;
+        return context.checkCallingOrSelfPermission(Manifest.permission.READ_LOGS) == PackageManager.PERMISSION_GRANTED;
     }
 
     public static boolean isDevicePowerPermissionGranted(Context context) {
-        if (context.checkCallingOrSelfPermission("android.permission.DEVICE_POWER") == PackageManager.PERMISSION_GRANTED)
-            return true;
-        else return false;
+        return context.checkCallingOrSelfPermission("android.permission.DEVICE_POWER") == PackageManager.PERMISSION_GRANTED;
     }
 
     public static boolean isConnectedToCharger(Context context) {
@@ -161,7 +153,7 @@ public class Utils {
     }
 
     public static float getLockscreenTimeoutValue(ContentResolver contentResolver) {
-        return ((float) (Settings.Secure.getInt(contentResolver, "lock_screen_lock_after_timeout", 5000) / 1000f) / 60f);
+        return (Settings.Secure.getInt(contentResolver, "lock_screen_lock_after_timeout", 5000) / 1000f / 60f);
     }
 
     public static boolean doesSettingExist(String settingName) {
@@ -182,9 +174,7 @@ public class Utils {
     public static boolean isSettingBool(String settingName) {
         // Since all the settings loaded dynamically by the service except dozeEnterDelay are bools,
         // return true only if settingName != dozeEnterDelay
-        if (settingName.equals("dozeEnterDelay")) {
-            return false;
-        } else return true;
+        return !settingName.equals("dozeEnterDelay");
     }
 
     public static boolean isXposedInstalled(Context context) {

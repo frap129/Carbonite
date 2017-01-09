@@ -1,6 +1,7 @@
 package com.suyashsrijan.forcedoze;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -8,15 +9,14 @@ import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.preference.SwitchPreference;
 import android.preference.Preference;
 import android.preference.PreferenceCategory;
 import android.preference.PreferenceFragment;
 import android.preference.PreferenceManager;
 import android.preference.PreferenceScreen;
+import android.preference.SwitchPreference;
 import android.provider.Settings;
 import android.support.v4.content.LocalBroadcastManager;
-import android.app.AlertDialog;
 import android.util.Log;
 import android.view.MenuItem;
 
@@ -73,15 +73,13 @@ public class SettingsActivity extends Activity {
             PreferenceScreen preferenceScreen = (PreferenceScreen) findPreference("preferenceScreen");
             PreferenceCategory mainSettings = (PreferenceCategory) findPreference("mainSettings");
             PreferenceCategory dozeSettings = (PreferenceCategory) findPreference("dozeSettings");
-            Preference resetForceDozePref = (Preference) findPreference("resetForceDoze");
-            Preference debugLogPref = (Preference) findPreference("debugLogs");
-            Preference clearDozeStats = (Preference) findPreference("resetDozeStats");
-            Preference dozeDelay = (Preference) findPreference("dozeEnterDelay");
-            Preference usePermanentDoze = (Preference) findPreference("usePermanentDoze");
-            Preference nonRootSensorWorkaround = (Preference) findPreference("useNonRootSensorWorkaround");
-            Preference enableSensors = (Preference) findPreference("enableSensors");
-            Preference turnOffDataInDoze = (Preference) findPreference("turnOffDataInDoze");
-            Preference autoRotateBrightnessFix = (Preference) findPreference("autoRotateAndBrightnessFix");
+            Preference resetForceDozePref = findPreference("resetForceDoze");
+            Preference dozeDelay = findPreference("dozeEnterDelay");
+            Preference usePermanentDoze = findPreference("usePermanentDoze");
+            Preference nonRootSensorWorkaround = findPreference("useNonRootSensorWorkaround");
+            Preference enableSensors = findPreference("enableSensors");
+            Preference turnOffDataInDoze = findPreference("turnOffDataInDoze");
+            Preference autoRotateBrightnessFix = findPreference("autoRotateAndBrightnessFix");
             SwitchPreference autoRotateFixPref = (SwitchPreference) findPreference("autoRotateAndBrightnessFix");
 
             resetForceDozePref.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
@@ -135,111 +133,6 @@ public class SettingsActivity extends Activity {
                         requestWriteSettingsPermission();
                         return false;
                     } else return true;
-                }
-            });
-
-            debugLogPref.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
-                @Override
-                public boolean onPreferenceClick(Preference preference) {
-                    progressDialog1 = new MaterialDialog.Builder(getActivity())
-                            .title(getString(R.string.please_wait_text))
-                            .cancelable(false)
-                            .autoDismiss(false)
-                            .content(getString(R.string.requesting_su_access_text))
-                            .progress(true, 0)
-                            .show();
-                    Log.i(TAG, "Check if SU is available, and request SU permission if it is");
-                    Tasks.executeInBackground(getActivity(), new BackgroundWork<Boolean>() {
-                        @Override
-                        public Boolean doInBackground() throws Exception {
-                            return Shell.SU.available();
-                        }
-                    }, new Completion<Boolean>() {
-                        @Override
-                        public void onSuccess(Context context, Boolean result) {
-                            if (progressDialog1 != null) {
-                                progressDialog1.dismiss();
-                            }
-                            isSuAvailable = result;
-                            Log.i(TAG, "SU available: " + Boolean.toString(result));
-                            if (isSuAvailable) {
-                                Log.i(TAG, "Phone is rooted and SU permission granted");
-                            } else {
-                                Log.i(TAG, "SU permission denied or not available");
-                                AlertDialog.Builder builder = new AlertDialog.Builder(context, R.style.AppCompatAlertDialogStyle);
-                                builder.setTitle(getString(R.string.error_text));
-                                builder.setMessage(getString(R.string.su_perm_denied_msg));
-                                builder.setPositiveButton(getString(R.string.close_button_text), new DialogInterface.OnClickListener() {
-                                    @Override
-                                    public void onClick(DialogInterface dialogInterface, int i) {
-                                        dialogInterface.dismiss();
-                                    }
-                                });
-                                builder.show();
-                            }
-                        }
-
-                        @Override
-                        public void onError(Context context, Exception e) {
-                            Log.e(TAG, "Error querying SU: " + e.getMessage());
-                        }
-                    });
-                    return true;
-                }
-            });
-
-            clearDozeStats.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
-                @Override
-                public boolean onPreferenceClick(Preference preference) {
-                    progressDialog1 = new MaterialDialog.Builder(getActivity())
-                            .title(getString(R.string.please_wait_text))
-                            .cancelable(false)
-                            .autoDismiss(false)
-                            .content(getString(R.string.clearing_doze_stats_text))
-                            .progress(true, 0)
-                            .show();
-                    Tasks.executeInBackground(getActivity(), new BackgroundWork<Boolean>() {
-                        @Override
-                        public Boolean doInBackground() throws Exception {
-                            Log.i(TAG, "Clearing Doze stats");
-                            SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getContext());
-                            SharedPreferences.Editor editor = sharedPreferences.edit();
-                            editor.remove("dozeUsageDataAdvanced");
-                            return editor.commit();
-                        }
-                    }, new Completion<Boolean>() {
-                        @Override
-                        public void onSuccess(Context context, Boolean result) {
-                            if (progressDialog1 != null) {
-                                progressDialog1.dismiss();
-                            }
-                            if (result) {
-                                Log.i(TAG, "Doze stats successfully cleared");
-                                if (Utils.isMyServiceRunning(ForceDozeService.class, context)) {
-                                    Intent intent = new Intent("reload-settings");
-                                    LocalBroadcastManager.getInstance(context).sendBroadcast(intent);
-                                }
-                                AlertDialog.Builder builder = new AlertDialog.Builder(context, R.style.AppCompatAlertDialogStyle);
-                                builder.setTitle(getString(R.string.cleared_text));
-                                builder.setMessage(getString(R.string.doze_battery_stats_clear_msg));
-                                builder.setPositiveButton(getString(R.string.close_button_text), new DialogInterface.OnClickListener() {
-                                    @Override
-                                    public void onClick(DialogInterface dialogInterface, int i) {
-                                        dialogInterface.dismiss();
-                                    }
-                                });
-                                builder.show();
-                            }
-
-                        }
-
-                        @Override
-                        public void onError(Context context, Exception e) {
-                            Log.e(TAG, "Error clearing Doze stats: " + e.getMessage());
-
-                        }
-                    });
-                    return true;
                 }
             });
 
@@ -312,6 +205,17 @@ public class SettingsActivity extends Activity {
 
                         return true;
                     }
+                }
+            });
+
+            Preference whitelistAppsFromDozeMode = findPreference("whitelistAppsFromDozeMode");
+            whitelistAppsFromDozeMode.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
+
+                public boolean onPreferenceClick(Preference preference) {
+                    Intent viewIntent = new Intent(Settings.ACTION_IGNORE_BATTERY_OPTIMIZATION_SETTINGS);
+                    startActivity(viewIntent);
+
+                    return true;
                 }
             });
 

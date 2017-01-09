@@ -28,12 +28,7 @@
         <Preference
             android:key="whitelistAppsFromDozeMode"
             android:summary="@string/whitelist_apps_setting_summary"
-            android:title="@string/whitelist_apps_setting_text">
-            <intent
-                android:action="android.intent.action.VIEW"
-                android:targetClass="com.suyashsrijan.forcedoze.WhitelistAppsActivity"
-                android:targetPackage="com.suyashsrijan.forcedoze" />
-        </Preference>
+            android:title="@string/whitelist_apps_setting_text"/>
     </PreferenceCategory>
     <PreferenceCategory android:title="Doze enhancements" android:key="dozeSettings">
         <SwitchPreference
@@ -66,18 +61,5 @@
             android:key="resetForceDoze"
             android:summary="@string/reset_forcedoze_setting_summary"
             android:title="@string/reset_forcedoze_setting_title" />
-        <Preference
-            android:key="resetDozeStats"
-            android:summary="@string/clear_doze_stats_setting_summary"
-            android:title="@string/clear_doze_stats_setting_title" />
-        <Preference
-            android:key="debugLogs"
-            android:summary="@string/show_app_logs_setting_summary"
-            android:title="@string/show_app_logs_setting_title">
-            <intent
-                android:action="android.intent.action.VIEW"
-                android:targetClass="com.suyashsrijan.forcedoze.LogActivity"
-                android:targetPackage="com.suyashsrijan.forcedoze" />
-        </Preference>
     </PreferenceCategory>
 </PreferenceScreen>

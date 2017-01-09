@@ -60,20 +60,6 @@
             </intent-filter>
         </receiver>
         <receiver
-            android:name=".AddWhiteListReceiver"
-            android:enabled="true">
-            <intent-filter>
-                <action android:name="com.suyashsrijan.forcedoze.ADD_WHITELIST" />
-            </intent-filter>
-        </receiver>
-        <receiver
-            android:name=".RemoveWhiteListReceiver"
-            android:enabled="true">
-            <intent-filter>
-                <action android:name="com.suyashsrijan.forcedoze.REMOVE_WHITELIST" />
-            </intent-filter>
-        </receiver>
-        <receiver
             android:name=".SettingsChangeReceiver"
             android:enabled="true">
             <intent-filter>
@@ -87,25 +73,8 @@
             android:exported="false" />
 
         <activity
-            android:name=".DozeStatsActivity"
-            android:label="Doze battery stats (old)" />
-
-        <activity
-            android:name=".DozeBatteryStatsActivity"
-            android:label="Doze battery stats" />
-
-        <activity
-            android:name=".WhitelistAppsActivity"
-            android:label="Whitelist" />
-        <activity
             android:name=".SettingsActivity"
             android:label="Settings" />
-        <activity
-            android:name=".PackageChooserActivity"
-            android:label="Package chooser" />
-        <activity
-            android:name=".AboutAppActivity"
-            android:label="About" />
 
         <receiver
             android:name=".ReenterDoze"
