@@ -18,18 +18,18 @@ import android.provider.Settings;
 import android.support.v4.content.LocalBroadcastManager;
 import android.telephony.SubscriptionManager;
 import android.telephony.TelephonyManager;
-import android.text.TextUtils;
 import android.util.Log;
 
+import java.io.BufferedReader;
+import java.io.DataOutputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.util.LinkedHashSet;
-import java.util.List;
 import java.util.Set;
 import java.util.Timer;
 import java.util.TimerTask;
-
-import eu.chainfire.libsuperuser.Shell;
 
 import static android.preference.PreferenceManager.getDefaultSharedPreferences;
 
@@ -271,26 +271,31 @@ public class ForceDozeService extends Service {
 
     }
 
-    public void executeCommand(final String command) {
+    public String executeCommand(final String command) {
+        final StringBuilder log = new StringBuilder();
         AsyncTask.execute(new Runnable() {
             @Override
             public void run() {
-                List<String> output = Shell.SH.run(command);
-                if (output != null) {
-                    printShellOutput(output);
-                } else {
-                    Log.i(TAG, "Error occurred while executing command (" + command + ")");
+              try {
+                Process p = Runtime.getRuntime().exec("/system/bin/sh");
+                DataOutputStream os = new DataOutputStream(p.getOutputStream());
+                os.writeBytes(command+"\n");
+                os.writeBytes("exit\n");
+                os.flush();
+                BufferedReader bufferedReader = new BufferedReader(
+                        new InputStreamReader(p.getInputStream()));
+                String line;
+                while ((line = bufferedReader.readLine()) != null) {
+                    log.append(line + "\n");
                 }
+
+              }
+              catch (IOException e){
+                    e.printStackTrace();
+              }
             }
         });
-    }
-
-    public void printShellOutput(List<String> output) {
-        if (!output.isEmpty()) {
-            for (String s : output) {
-                Log.i(TAG, s);
-            }
-        }
+        return log.toString();
     }
 
     public void saveDozeDataStats() {
@@ -350,14 +355,7 @@ public class ForceDozeService extends Service {
                     if (transactionCode != null && transactionCode.length() > 0) {
                         int subscriptionId = mSubscriptionManager.getActiveSubscriptionInfoList().get(i).getSubscriptionId();
                         command = "service call phone " + transactionCode + " i32 " + subscriptionId + " i32 " + targetState;
-                        List<String> output = Shell.SU.run(command);
-                        if (output != null) {
-                            for (String s : output) {
-                                Log.i(TAG, s);
-                            }
-                        } else {
-                            Log.i(TAG, "Error occurred while executing command (" + command + ")");
-                        }
+                        executeCommand(command);
                     }
                 }
             }
@@ -386,8 +384,7 @@ public class ForceDozeService extends Service {
 
     public String getDeviceIdleState() {
         String state = "";
-        List<String> output = Shell.SH.run("dumpsys deviceidle");
-        String outputString = TextUtils.join(", ", output);
+        String outputString = executeCommand("dumpsys deviceidle");
         if (outputString.contains("mState=ACTIVE")) {
             state = "ACTIVE";
         } else if (outputString.contains("mState=INACTIVE")) {

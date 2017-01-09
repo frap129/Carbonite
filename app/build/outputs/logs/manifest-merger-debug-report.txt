@@ -194,7 +194,6 @@ MERGED from [com.android.support:support-vector-drawable:25.0.1] /home/frap129/S
 MERGED from [com.android.support:animated-vector-drawable:25.0.1] /home/frap129/StudioProjects/Carbonite/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/25.0.1/AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:recyclerview-v7:25.0.1] /home/frap129/StudioProjects/Carbonite/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/25.0.1/AndroidManifest.xml:20:5-43
 MERGED from [com.android.support:transition:25.0.1] /home/frap129/StudioProjects/Carbonite/app/build/intermediates/exploded-aar/com.android.support/transition/25.0.1/AndroidManifest.xml:20:5-44
-MERGED from [eu.chainfire:libsuperuser:1.0.0.201608240809] /home/frap129/StudioProjects/Carbonite/app/build/intermediates/exploded-aar/eu.chainfire/libsuperuser/1.0.0.201608240809/AndroidManifest.xml:7:5-9:41
 	tools:overrideLibrary
 		ADDED from [com.android.support:design:25.0.1] /home/frap129/StudioProjects/Carbonite/app/build/intermediates/exploded-aar/com.android.support/design/25.0.1/AndroidManifest.xml:23:9-59
 	android:targetSdkVersion
