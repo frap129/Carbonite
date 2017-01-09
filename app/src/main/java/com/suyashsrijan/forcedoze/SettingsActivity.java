@@ -20,7 +20,6 @@ import android.support.v4.content.LocalBroadcastManager;
 import android.util.Log;
 import android.view.MenuItem;
 
-import com.jakewharton.processphoenix.ProcessPhoenix;
 import com.nanotasks.BackgroundWork;
 import com.nanotasks.Completion;
 import com.nanotasks.Tasks;
@@ -72,37 +71,12 @@ public class SettingsActivity extends Activity {
             PreferenceScreen preferenceScreen = (PreferenceScreen) findPreference("preferenceScreen");
             PreferenceCategory mainSettings = (PreferenceCategory) findPreference("mainSettings");
             PreferenceCategory dozeSettings = (PreferenceCategory) findPreference("dozeSettings");
-            Preference resetForceDozePref = findPreference("resetForceDoze");
             Preference dozeDelay = findPreference("dozeEnterDelay");
             Preference nonRootSensorWorkaround = findPreference("useNonRootSensorWorkaround");
             Preference enableSensors = findPreference("enableSensors");
             Preference turnOffDataInDoze = findPreference("turnOffDataInDoze");
             Preference autoRotateBrightnessFix = findPreference("autoRotateAndBrightnessFix");
             SwitchPreference autoRotateFixPref = (SwitchPreference) findPreference("autoRotateAndBrightnessFix");
-
-            resetForceDozePref.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
-                @Override
-                public boolean onPreferenceClick(Preference preference) {
-                    AlertDialog.Builder builder = new AlertDialog.Builder(getActivity(), R.style.AppCompatAlertDialogStyle);
-                    builder.setTitle(getString(R.string.forcedoze_reset_initial_dialog_title));
-                    builder.setMessage(getString(R.string.forcedoze_reset_initial_dialog_text));
-                    builder.setPositiveButton(getString(R.string.yes_button_text), new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialogInterface, int i) {
-                            dialogInterface.dismiss();
-                            resetForceDoze();
-                        }
-                    });
-                    builder.setNegativeButton(getString(R.string.no_button_text), new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialogInterface, int i) {
-                            dialogInterface.dismiss();
-                        }
-                    });
-                    builder.show();
-                    return true;
-                }
-            });
 
             dozeDelay.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
                 @Override
@@ -245,42 +219,6 @@ public class SettingsActivity extends Activity {
                 @Override
                 public void onClick(DialogInterface dialogInterface, int i) {
                     dialogInterface.dismiss();
-                }
-            });
-            builder.show();
-        }
-
-        public void resetForceDoze() {
-            Log.i(TAG, "Starting ForceDoze reset procedure");
-            if (Utils.isMyServiceRunning(ForceDozeService.class, getActivity())) {
-                Log.i(TAG, "Stopping ForceDozeService");
-                getActivity().stopService(new Intent(getActivity(), ForceDozeService.class));
-            }
-            Log.i(TAG, "Enabling sensors, just in case they are disabled");
-            executeCommand("dumpsys sensorservice enable");
-            Log.i(TAG, "Disabling and re-enabling Doze mode");
-            if (Utils.isDeviceRunningOnNPreview()) {
-                executeCommand("dumpsys deviceidle disable all");
-                executeCommand("dumpsys deviceidle enable all");
-            } else {
-                executeCommand("dumpsys deviceidle disable");
-                executeCommand("dumpsys deviceidle enable");
-            }
-            Log.i(TAG, "Resetting app preferences");
-            PreferenceManager.getDefaultSharedPreferences(getActivity()).edit().clear().apply();
-            Log.i(TAG, "Trying to revoke android.permission.DUMP");
-            executeCommand("pm revoke com.suyashsrijan.forcedoze android.permission.DUMP");
-            executeCommand("pm revoke com.suyashsrijan.forcedoze android.permission.READ_LOGS");
-            executeCommand("pm revoke com.suyashsrijan.forcedoze android.permission.DEVICE_POWER");
-            Log.i(TAG, "ForceDoze reset procedure complete");
-            AlertDialog.Builder builder = new AlertDialog.Builder(getActivity(), R.style.AppCompatAlertDialogStyle);
-            builder.setTitle(getString(R.string.reset_complete_dialog_title));
-            builder.setMessage(getString(R.string.reset_complete_dialog_text));
-            builder.setPositiveButton(getString(R.string.okay_button_text), new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialogInterface, int i) {
-                    dialogInterface.dismiss();
-                    ProcessPhoenix.triggerRebirth(getActivity());
                 }
             });
             builder.show();

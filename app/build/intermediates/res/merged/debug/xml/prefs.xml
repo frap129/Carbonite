@@ -51,10 +51,4 @@
             android:summary="@string/doze_delay_setting_summary"
             android:title="@string/doze_delay_setting_title" />
     </PreferenceCategory>
-    <PreferenceCategory android:title="Other">
-        <Preference
-            android:key="resetForceDoze"
-            android:summary="@string/reset_forcedoze_setting_summary"
-            android:title="@string/reset_forcedoze_setting_title" />
-    </PreferenceCategory>
 </PreferenceScreen>

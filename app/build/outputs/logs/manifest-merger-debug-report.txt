@@ -68,7 +68,6 @@ MERGED from [com.android.support:appcompat-v7:25.0.1] /home/frap129/StudioProjec
 MERGED from [com.android.support:support-vector-drawable:25.0.1] /home/frap129/StudioProjects/Carbonite/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/25.0.1/AndroidManifest.xml:23:5-20
 MERGED from [com.android.support:animated-vector-drawable:25.0.1] /home/frap129/StudioProjects/Carbonite/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/25.0.1/AndroidManifest.xml:22:5-20
 MERGED from [com.android.support:transition:25.0.1] /home/frap129/StudioProjects/Carbonite/app/build/intermediates/exploded-aar/com.android.support/transition/25.0.1/AndroidManifest.xml:22:5-20
-MERGED from [com.jakewharton:process-phoenix:1.0.2] /home/frap129/StudioProjects/Carbonite/app/build/intermediates/exploded-aar/com.jakewharton/process-phoenix/1.0.2/AndroidManifest.xml:7:5-12:19
 	android:label
 		ADDED from /home/frap129/StudioProjects/Carbonite/app/src/main/AndroidManifest.xml:24:9-41
 	android:supportsRtl
@@ -197,7 +196,6 @@ MERGED from [com.android.support:recyclerview-v7:25.0.1] /home/frap129/StudioPro
 MERGED from [com.android.support:transition:25.0.1] /home/frap129/StudioProjects/Carbonite/app/build/intermediates/exploded-aar/com.android.support/transition/25.0.1/AndroidManifest.xml:20:5-44
 MERGED from [eu.chainfire:libsuperuser:1.0.0.201608240809] /home/frap129/StudioProjects/Carbonite/app/build/intermediates/exploded-aar/eu.chainfire/libsuperuser/1.0.0.201608240809/AndroidManifest.xml:7:5-9:41
 MERGED from [com.fabiendevos:nanotasks:1.1.0] /home/frap129/StudioProjects/Carbonite/app/build/intermediates/exploded-aar/com.fabiendevos/nanotasks/1.1.0/AndroidManifest.xml:7:5-9:41
-MERGED from [com.jakewharton:process-phoenix:1.0.2] /home/frap129/StudioProjects/Carbonite/app/build/intermediates/exploded-aar/com.jakewharton/process-phoenix/1.0.2/AndroidManifest.xml:5:5-43
 	tools:overrideLibrary
 		ADDED from [com.android.support:design:25.0.1] /home/frap129/StudioProjects/Carbonite/app/build/intermediates/exploded-aar/com.android.support/design/25.0.1/AndroidManifest.xml:23:9-59
 	android:targetSdkVersion
@@ -206,11 +204,3 @@ MERGED from [com.jakewharton:process-phoenix:1.0.2] /home/frap129/StudioProjects
 	android:minSdkVersion
 		INJECTED from /home/frap129/StudioProjects/Carbonite/app/src/main/AndroidManifest.xml
 		INJECTED from /home/frap129/StudioProjects/Carbonite/app/src/main/AndroidManifest.xml
-activity#com.jakewharton.processphoenix.ProcessPhoenix
-ADDED from [com.jakewharton:process-phoenix:1.0.2] /home/frap129/StudioProjects/Carbonite/app/build/intermediates/exploded-aar/com.jakewharton/process-phoenix/1.0.2/AndroidManifest.xml:8:9-11:75
-	android:process
-		ADDED from [com.jakewharton:process-phoenix:1.0.2] /home/frap129/StudioProjects/Carbonite/app/build/intermediates/exploded-aar/com.jakewharton/process-phoenix/1.0.2/AndroidManifest.xml:10:13-39
-	android:theme
-		ADDED from [com.jakewharton:process-phoenix:1.0.2] /home/frap129/StudioProjects/Carbonite/app/build/intermediates/exploded-aar/com.jakewharton/process-phoenix/1.0.2/AndroidManifest.xml:11:13-72
-	android:name
-		ADDED from [com.jakewharton:process-phoenix:1.0.2] /home/frap129/StudioProjects/Carbonite/app/build/intermediates/exploded-aar/com.jakewharton/process-phoenix/1.0.2/AndroidManifest.xml:9:13-73

@@ -81,11 +81,6 @@
             android:name="com.suyashsrijan.forcedoze.ReenterDoze"
             android:enabled="true"
             android:exported="true" />
-
-        <activity
-            android:name="com.jakewharton.processphoenix.ProcessPhoenix"
-            android:process=":phoenix"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
     </application>
 
 </manifest>
