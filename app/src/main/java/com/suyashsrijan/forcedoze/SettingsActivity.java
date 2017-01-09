@@ -20,7 +20,6 @@ import android.support.v4.content.LocalBroadcastManager;
 import android.util.Log;
 import android.view.MenuItem;
 
-import com.afollestad.materialdialogs.MaterialDialog;
 import com.jakewharton.processphoenix.ProcessPhoenix;
 import com.nanotasks.BackgroundWork;
 import com.nanotasks.Completion;
@@ -32,7 +31,7 @@ import eu.chainfire.libsuperuser.Shell;
 
 public class SettingsActivity extends Activity {
     public static String TAG = "ForceDoze";
-    static MaterialDialog progressDialog1 = null;
+    static AlertDialog progressDialog1 = null;
     static boolean isSuAvailable = false;
 
     @Override
@@ -75,7 +74,6 @@ public class SettingsActivity extends Activity {
             PreferenceCategory dozeSettings = (PreferenceCategory) findPreference("dozeSettings");
             Preference resetForceDozePref = findPreference("resetForceDoze");
             Preference dozeDelay = findPreference("dozeEnterDelay");
-            Preference usePermanentDoze = findPreference("usePermanentDoze");
             Preference nonRootSensorWorkaround = findPreference("useNonRootSensorWorkaround");
             Preference enableSensors = findPreference("enableSensors");
             Preference turnOffDataInDoze = findPreference("turnOffDataInDoze");
@@ -157,12 +155,10 @@ public class SettingsActivity extends Activity {
                     if (!newValue) {
                         return true;
                     } else {
-                        progressDialog1 = new MaterialDialog.Builder(getActivity())
-                                .title(getString(R.string.please_wait_text))
-                                .cancelable(false)
-                                .autoDismiss(false)
-                                .content(getString(R.string.requesting_su_access_text))
-                                .progress(true, 0)
+                        progressDialog1 = new AlertDialog.Builder(getActivity())
+                                .setTitle(getString(R.string.please_wait_text))
+                                .setCancelable(false)
+                                .setMessage(getString(R.string.requesting_su_access_text))
                                 .show();
                         Log.i(TAG, "Check if SU is available, and request SU permission if it is");
                         Tasks.executeInBackground(getActivity(), new BackgroundWork<Boolean>() {

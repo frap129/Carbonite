@@ -368,46 +368,8 @@
                     "startLine": 21,
                     "startColumn": 4,
                     "startOffset": 1895,
-                    "endColumn": 45,
-                    "endOffset": 1936
-                },
-                "from": {
-                    "file": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/exploded-aar/de.psdev.licensesdialog/licensesdialog/1.8.1/res/values-ja/strings.xml",
-                    "position": {
-                        "startLine": 19,
-                        "startColumn": 4,
-                        "startOffset": 773,
-                        "endColumn": 45,
-                        "endOffset": 814
-                    }
-                }
-            },
-            {
-                "to": {
-                    "startLine": 22,
-                    "startColumn": 4,
-                    "startOffset": 1941,
-                    "endColumn": 54,
-                    "endOffset": 1991
-                },
-                "from": {
-                    "file": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/exploded-aar/de.psdev.licensesdialog/licensesdialog/1.8.1/res/values-ja/strings.xml",
-                    "position": {
-                        "startLine": 18,
-                        "startColumn": 4,
-                        "startOffset": 717,
-                        "endColumn": 54,
-                        "endOffset": 767
-                    }
-                }
-            },
-            {
-                "to": {
-                    "startLine": 23,
-                    "startColumn": 4,
-                    "startOffset": 1996,
                     "endColumn": 77,
-                    "endOffset": 2069
+                    "endOffset": 1968
                 },
                 "from": {
                     "file": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.1/res/values-ja/values-ja.xml",
@@ -422,11 +384,11 @@
             },
             {
                 "to": {
-                    "startLine": 24,
+                    "startLine": 22,
                     "startColumn": 4,
-                    "startOffset": 2074,
+                    "startOffset": 1973,
                     "endColumn": 100,
-                    "endOffset": 2170
+                    "endOffset": 2069
                 },
                 "from": {
                     "file": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.1/res/values-ja/values-ja.xml",

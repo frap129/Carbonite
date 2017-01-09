@@ -15,9 +15,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.CompoundButton;
 import android.widget.Switch;
-import android.widget.TextView;
 
-import com.afollestad.materialdialogs.MaterialDialog;
 import com.nanotasks.BackgroundWork;
 import com.nanotasks.Completion;
 import com.nanotasks.Tasks;
@@ -25,7 +23,6 @@ import com.nanotasks.Tasks;
 import java.util.List;
 
 import eu.chainfire.libsuperuser.Shell;
-import io.github.eliseomartelli.simplecustomtabs.CustomTabs;
 
 public class MainActivity extends Activity implements CompoundButton.OnCheckedChangeListener {
     public static String TAG = "ForceDoze";
@@ -39,15 +36,12 @@ public class MainActivity extends Activity implements CompoundButton.OnCheckedCh
     Boolean ignoreLockscreenTimeout = true;
     Boolean showDonateDevDialog = true;
     Switch toggleForceDozeSwitch;
-    MaterialDialog progressDialog = null;
-    TextView textViewStatus;
-    CustomTabs.Warmer warmer;
+    AlertDialog progressDialog = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        warmer = CustomTabs.with(getApplicationContext()).warm();
         settings = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         isDozeEnabledByOEM = Utils.checkForAutoPowerModesFlag();
         showDonateDevDialog = settings.getBoolean("showDonateDevDialog1", true);
@@ -78,12 +72,10 @@ public class MainActivity extends Activity implements CompoundButton.OnCheckedCh
 
 
         } else {
-            progressDialog = new MaterialDialog.Builder(this)
-                    .title(R.string.please_wait_text)
-                    .autoDismiss(false)
-                    .cancelable(false)
-                    .content(R.string.requesting_su_access_text)
-                    .progress(true, 0)
+            progressDialog = new AlertDialog.Builder(this)
+                    .setTitle(R.string.please_wait_text)
+                    .setCancelable(false)
+                    .setMessage(R.string.requesting_su_access_text)
                     .show();
             Log.i(TAG, "Check if SU is available, and request SU permission if it is");
             Tasks.executeInBackground(MainActivity.this, new BackgroundWork<Boolean>() {
@@ -132,7 +124,6 @@ public class MainActivity extends Activity implements CompoundButton.OnCheckedCh
                         Log.i(TAG, "SU permission denied or not available");
                         toggleForceDozeSwitch.setChecked(false);
                         toggleForceDozeSwitch.setEnabled(false);
-                        textViewStatus.setText(R.string.service_disabled);
                         editor = settings.edit();
                         editor.putBoolean("isSuAvailable", false);
                         editor.apply();
@@ -163,7 +154,6 @@ public class MainActivity extends Activity implements CompoundButton.OnCheckedCh
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        warmer.unwarm();
     }
 
     @Override
@@ -211,42 +201,6 @@ public class MainActivity extends Activity implements CompoundButton.OnCheckedCh
             }
         }
     }
-
-    public void openDonatePage() {
-        CustomTabs.with(getApplicationContext())
-                .setStyle(new CustomTabs.Style(getApplicationContext())
-                        .setShowTitle(true)
-                        .setExitAnimation(android.R.anim.slide_in_left, android.R.anim.slide_out_right))
-                .openUrl("https://www.paypal.me/suyashsrijan", this);
-    }
-
-    public void showEnableDozeOnUnsupportedDeviceDialog() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this, R.style.AppCompatAlertDialogStyle);
-        builder.setTitle(getString(R.string.doze_unsupported_more_info_title));
-        builder.setMessage(getString(R.string.doze_unsupported_more_info));
-        builder.setPositiveButton(getString(R.string.close_button_text), new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-                dialogInterface.dismiss();
-            }
-        });
-        builder.setNegativeButton(getString(R.string.enable_doze_button_text), new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-                executeCommand("setprop persist.sys.doze_powersave true");
-                if (Utils.isDeviceRunningOnNPreview()) {
-                    executeCommand("dumpsys deviceidle disable all");
-                    executeCommand("dumpsys deviceidle enable all");
-                } else {
-                    executeCommand("dumpsys deviceidle disable");
-                    executeCommand("dumpsys deviceidle enable");
-                }
-                dialogInterface.dismiss();
-            }
-        });
-        builder.show();
-    }
-
 
     public void showRootWorkaroundInstructions() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this, R.style.AppCompatAlertDialogStyle);
@@ -308,32 +262,6 @@ public class MainActivity extends Activity implements CompoundButton.OnCheckedCh
         builder.setPositiveButton(getString(R.string.okay_button_text), new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-                dialogInterface.dismiss();
-            }
-        });
-        builder.show();
-    }
-
-    public void showDonateDevDialog() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this, R.style.AppCompatAlertDialogStyle);
-        builder.setTitle(getString(R.string.donate_dialog_title));
-        builder.setMessage(getString(R.string.donate_dialog_text));
-        builder.setPositiveButton(getString(R.string.donate_dialog_button_text), new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-                editor = settings.edit();
-                editor.putBoolean("showDonateDevDialog1", false);
-                editor.apply();
-                dialogInterface.dismiss();
-                openDonatePage();
-            }
-        });
-        builder.setNegativeButton(getString(R.string.close_button_text), new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-                editor = settings.edit();
-                editor.putBoolean("showDonateDevDialog1", false);
-                editor.apply();
                 dialogInterface.dismiss();
             }
         });

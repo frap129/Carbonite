@@ -1719,50 +1719,8 @@
                     "startLine": 225,
                     "startColumn": 4,
                     "startOffset": 16916,
-                    "endLine": 235,
-                    "endColumn": 12,
-                    "endOffset": 17670
-                },
-                "from": {
-                    "file": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/exploded-aar/com.github.afollestad.material-dialogs/core/0.8.5.8/res/values-v21/values-v21.xml",
-                    "position": {
-                        "startLine": 2,
-                        "startColumn": 4,
-                        "startOffset": 55,
-                        "endLine": 12,
-                        "endColumn": 12,
-                        "endOffset": 809
-                    }
-                }
-            },
-            {
-                "to": {
-                    "startLine": 236,
-                    "startColumn": 4,
-                    "startOffset": 17675,
-                    "endLine": 246,
-                    "endColumn": 12,
-                    "endOffset": 18421
-                },
-                "from": {
-                    "file": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/exploded-aar/com.github.afollestad.material-dialogs/core/0.8.5.8/res/values-v21/values-v21.xml",
-                    "position": {
-                        "startLine": 13,
-                        "startColumn": 4,
-                        "startOffset": 814,
-                        "endLine": 23,
-                        "endColumn": 12,
-                        "endOffset": 1560
-                    }
-                }
-            },
-            {
-                "to": {
-                    "startLine": 247,
-                    "startColumn": 4,
-                    "startOffset": 18426,
                     "endColumn": 70,
-                    "endOffset": 18492
+                    "endOffset": 16982
                 },
                 "from": {
                     "file": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.1/res/values-v21/values-v21.xml",
@@ -1777,11 +1735,11 @@
             },
             {
                 "to": {
-                    "startLine": 248,
+                    "startLine": 226,
                     "startColumn": 4,
-                    "startOffset": 18497,
+                    "startOffset": 16987,
                     "endColumn": 82,
-                    "endOffset": 18575
+                    "endOffset": 17065
                 },
                 "from": {
                     "file": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.1/res/values-v21/values-v21.xml",
@@ -1796,12 +1754,12 @@
             },
             {
                 "to": {
-                    "startLine": 249,
+                    "startLine": 227,
                     "startColumn": 4,
-                    "startOffset": 18580,
-                    "endLine": 258,
+                    "startOffset": 17070,
+                    "endLine": 236,
                     "endColumn": 12,
-                    "endOffset": 19255
+                    "endOffset": 17745
                 },
                 "from": {
                     "file": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.1/res/values-v21/values-v21.xml",
@@ -1817,11 +1775,11 @@
             },
             {
                 "to": {
-                    "startLine": 259,
+                    "startLine": 237,
                     "startColumn": 4,
-                    "startOffset": 19260,
+                    "startOffset": 17750,
                     "endColumn": 56,
-                    "endOffset": 19312
+                    "endOffset": 17802
                 },
                 "from": {
                     "file": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.1/res/values-v21/values-v21.xml",
@@ -1836,11 +1794,11 @@
             },
             {
                 "to": {
-                    "startLine": 260,
+                    "startLine": 238,
                     "startColumn": 4,
-                    "startOffset": 19317,
+                    "startOffset": 17807,
                     "endColumn": 57,
-                    "endOffset": 19370
+                    "endOffset": 17860
                 },
                 "from": {
                     "file": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.1/res/values-v21/values-v21.xml",
@@ -1855,12 +1813,12 @@
             },
             {
                 "to": {
-                    "startLine": 261,
+                    "startLine": 239,
                     "startColumn": 4,
-                    "startOffset": 19375,
-                    "endLine": 272,
+                    "startOffset": 17865,
+                    "endLine": 250,
                     "endColumn": 12,
-                    "endOffset": 20064
+                    "endOffset": 18554
                 },
                 "from": {
                     "file": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.1/res/values-v21/values-v21.xml",
@@ -1876,12 +1834,12 @@
             },
             {
                 "to": {
-                    "startLine": 273,
+                    "startLine": 251,
                     "startColumn": 4,
-                    "startOffset": 20069,
-                    "endLine": 284,
+                    "startOffset": 18559,
+                    "endLine": 262,
                     "endColumn": 12,
-                    "endOffset": 20770
+                    "endOffset": 19260
                 },
                 "from": {
                     "file": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.1/res/values-v21/values-v21.xml",
@@ -1897,11 +1855,11 @@
             },
             {
                 "to": {
-                    "startLine": 285,
+                    "startLine": 263,
                     "startColumn": 4,
-                    "startOffset": 20775,
+                    "startOffset": 19265,
                     "endColumn": 118,
-                    "endOffset": 20889
+                    "endOffset": 19379
                 },
                 "from": {
                     "file": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.1/res/values-v21/values-v21.xml",
@@ -1916,11 +1874,11 @@
             },
             {
                 "to": {
-                    "startLine": 286,
+                    "startLine": 264,
                     "startColumn": 4,
-                    "startOffset": 20894,
+                    "startOffset": 19384,
                     "endColumn": 128,
-                    "endOffset": 21018
+                    "endOffset": 19508
                 },
                 "from": {
                     "file": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.1/res/values-v21/values-v21.xml",
@@ -1935,12 +1893,12 @@
             },
             {
                 "to": {
-                    "startLine": 287,
+                    "startLine": 265,
                     "startColumn": 4,
-                    "startOffset": 21023,
-                    "endLine": 289,
+                    "startOffset": 19513,
+                    "endLine": 267,
                     "endColumn": 12,
-                    "endOffset": 21189
+                    "endOffset": 19679
                 },
                 "from": {
                     "file": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.1/res/values-v21/values-v21.xml",
@@ -1956,12 +1914,12 @@
             },
             {
                 "to": {
-                    "startLine": 290,
+                    "startLine": 268,
                     "startColumn": 4,
-                    "startOffset": 21194,
-                    "endLine": 292,
+                    "startOffset": 19684,
+                    "endLine": 270,
                     "endColumn": 12,
-                    "endOffset": 21355
+                    "endOffset": 19845
                 },
                 "from": {
                     "file": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.1/res/values-v21/values-v21.xml",
@@ -1977,11 +1935,11 @@
             },
             {
                 "to": {
-                    "startLine": 293,
+                    "startLine": 271,
                     "startColumn": 4,
-                    "startOffset": 21360,
+                    "startOffset": 19850,
                     "endColumn": 128,
-                    "endOffset": 21484
+                    "endOffset": 19974
                 },
                 "from": {
                     "file": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.1/res/values-v21/values-v21.xml",
@@ -1996,12 +1954,12 @@
             },
             {
                 "to": {
-                    "startLine": 294,
+                    "startLine": 272,
                     "startColumn": 4,
-                    "startOffset": 21489,
-                    "endLine": 296,
+                    "startOffset": 19979,
+                    "endLine": 274,
                     "endColumn": 12,
-                    "endOffset": 21655
+                    "endOffset": 20145
                 },
                 "from": {
                     "file": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.1/res/values-v21/values-v21.xml",
@@ -2017,11 +1975,11 @@
             },
             {
                 "to": {
-                    "startLine": 297,
+                    "startLine": 275,
                     "startColumn": 4,
-                    "startOffset": 21660,
+                    "startOffset": 20150,
                     "endColumn": 130,
-                    "endOffset": 21786
+                    "endOffset": 20276
                 },
                 "from": {
                     "file": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.1/res/values-v21/values-v21.xml",
@@ -2036,12 +1994,12 @@
             },
             {
                 "to": {
-                    "startLine": 298,
+                    "startLine": 276,
                     "startColumn": 4,
-                    "startOffset": 21791,
-                    "endLine": 300,
+                    "startOffset": 20281,
+                    "endLine": 278,
                     "endColumn": 12,
-                    "endOffset": 21956
+                    "endOffset": 20446
                 },
                 "from": {
                     "file": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.1/res/values-v21/values-v21.xml",
@@ -2057,12 +2015,12 @@
             },
             {
                 "to": {
-                    "startLine": 301,
+                    "startLine": 279,
                     "startColumn": 4,
-                    "startOffset": 21961,
-                    "endLine": 303,
+                    "startOffset": 20451,
+                    "endLine": 281,
                     "endColumn": 12,
-                    "endOffset": 22131
+                    "endOffset": 20621
                 },
                 "from": {
                     "file": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.1/res/values-v21/values-v21.xml",
@@ -2078,12 +2036,12 @@
             },
             {
                 "to": {
-                    "startLine": 304,
+                    "startLine": 282,
                     "startColumn": 4,
-                    "startOffset": 22136,
-                    "endLine": 308,
+                    "startOffset": 20626,
+                    "endLine": 286,
                     "endColumn": 12,
-                    "endOffset": 22472
+                    "endOffset": 20962
                 },
                 "from": {
                     "file": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.1/res/values-v21/values-v21.xml",
@@ -2099,12 +2057,12 @@
             },
             {
                 "to": {
-                    "startLine": 309,
+                    "startLine": 287,
                     "startColumn": 4,
-                    "startOffset": 22477,
-                    "endLine": 311,
+                    "startOffset": 20967,
+                    "endLine": 289,
                     "endColumn": 12,
-                    "endOffset": 22666
+                    "endOffset": 21156
                 },
                 "from": {
                     "file": "/home/frap129/StudioProjects/Carbonite/app/build/intermediates/exploded-aar/com.android.support/design/25.0.1/res/values-v21/values-v21.xml",
