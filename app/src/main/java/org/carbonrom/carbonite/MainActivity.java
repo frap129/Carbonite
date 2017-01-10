@@ -16,6 +16,9 @@ import android.widget.Switch;
 
 import com.carbonrom.carbonite.R;
 
+import java.io.DataOutputStream;
+import java.io.IOException;
+
 public class MainActivity extends Activity implements CompoundButton.OnCheckedChangeListener {
     public static String TAG = "Carbonite";
     SharedPreferences settings;
@@ -54,6 +57,31 @@ public class MainActivity extends Activity implements CompoundButton.OnCheckedCh
             } else {
                 Log.i(TAG, "Service not enabled");
             }
+        } else {
+            try {
+                String dumpPerm = "pm grant org.carbonrom.carbonite android.permission.DUMP";
+                Process p = Runtime.getRuntime().exec("/system/bin/sh");
+                DataOutputStream os = new DataOutputStream(p.getOutputStream());
+                os.writeBytes(dumpPerm + "\n");
+                os.writeBytes("exit\n");
+                os.flush();
+                Log.i(TAG, "android.permission.DUMP was granted");
+            } catch (IOException e) {
+                e.printStackTrace();
+                Log.i(TAG, "Exception granting android.permission.DUMP");
+            }
+            if (serviceEnabled) {
+                toggleForceDozeSwitch.setChecked(true);
+                if (!Utils.isMyServiceRunning(ForceDozeService.class, MainActivity.this)) {
+                    Log.i(TAG, "Starting ForceDozeService");
+                    startService(new Intent(this, ForceDozeService.class));
+                } else {
+                    Log.i(TAG, "Service already running");
+                }
+            } else {
+                Log.i(TAG, "Service not enabled");
+            }
+            isDumpPermGranted = true;
         }
 
     }
