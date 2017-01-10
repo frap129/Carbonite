@@ -4,12 +4,10 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.preference.Preference;
 import android.preference.PreferenceFragment;
-import android.preference.PreferenceManager;
 import android.preference.SwitchPreference;
 import android.provider.Settings;
 import android.support.v4.content.LocalBroadcastManager;
@@ -55,7 +53,6 @@ public class SettingsActivity extends Activity {
             super.onCreate(savedInstanceState);
             addPreferencesFromResource(R.xml.prefs);
             Preference dozeDelay = findPreference("dozeEnterDelay");
-            Preference nonRootSensorWorkaround = findPreference("useNonRootSensorWorkaround");
             SwitchPreference autoRotateFixPref = (SwitchPreference) findPreference("autoRotateAndBrightnessFix");
 
             dozeDelay.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
@@ -87,21 +84,6 @@ public class SettingsActivity extends Activity {
                     } else return true;
                 }
             });
-
-            nonRootSensorWorkaround.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
-                @Override
-                public boolean onPreferenceChange(Preference preference, Object o) {
-                    boolean newValue = (boolean) o;
-                    SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
-                    SharedPreferences.Editor editor = sharedPreferences.edit();
-                    if (newValue) {
-                        editor.putBoolean("enableSensors", true);
-                        editor.apply();
-                    }
-                    return true;
-                }
-            });
-
         }
 
         public void requestWriteSettingsPermission() {

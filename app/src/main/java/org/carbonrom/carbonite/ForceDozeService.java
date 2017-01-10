@@ -1,7 +1,6 @@
 package org.carbonrom.carbonite;
 
 import android.app.AlarmManager;
-import android.app.PendingIntent;
 import android.app.Service;
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -10,7 +9,6 @@ import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.net.wifi.WifiManager;
 import android.os.AsyncTask;
-import android.os.Build;
 import android.os.IBinder;
 import android.os.PowerManager;
 import android.preference.PreferenceManager;
@@ -321,14 +319,14 @@ public class ForceDozeService extends Service {
         String command;
         try {
             String transactionCode = getTransactionCode(context);
-                SubscriptionManager mSubscriptionManager = (SubscriptionManager) context.getSystemService(Context.TELEPHONY_SUBSCRIPTION_SERVICE);
-                for (int i = 0; i < mSubscriptionManager.getActiveSubscriptionInfoCountMax(); i++) {
-                    if (transactionCode != null && transactionCode.length() > 0) {
-                        int subscriptionId = mSubscriptionManager.getActiveSubscriptionInfoList().get(i).getSubscriptionId();
-                        command = "service call phone " + transactionCode + " i32 " + subscriptionId + " i32 " + targetState;
-                        executeCommand(command);
-                    }
+            SubscriptionManager mSubscriptionManager = (SubscriptionManager) context.getSystemService(Context.TELEPHONY_SUBSCRIPTION_SERVICE);
+            for (int i = 0; i < mSubscriptionManager.getActiveSubscriptionInfoCountMax(); i++) {
+                if (transactionCode != null && transactionCode.length() > 0) {
+                    int subscriptionId = mSubscriptionManager.getActiveSubscriptionInfoList().get(i).getSubscriptionId();
+                    command = "service call phone " + transactionCode + " i32 " + subscriptionId + " i32 " + targetState;
+                    executeCommand(command);
                 }
+            }
         } catch (Exception e) {
             Log.i(TAG, "Failed to toggle mobile data: " + e.getMessage());
         }

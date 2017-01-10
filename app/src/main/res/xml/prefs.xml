@@ -1,10 +1,8 @@
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" android:key="preferenceScreen">
-    <PreferenceCategory android:title="Main" android:key="mainSettings">
-        <SwitchPreference
-            android:defaultValue="false"
-            android:key="enableSensors"
-            android:summary="@string/enable_sensors_setting_summary"
-            android:title="@string/enable_sensors_setting_title" />
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    android:key="preferenceScreen">
+    <PreferenceCategory
+        android:key="mainSettings"
+        android:title="Main">
         <SwitchPreference
             android:defaultValue="true"
             android:key="disableWhenCharging"
@@ -23,9 +21,16 @@
         <Preference
             android:key="whitelistAppsFromDozeMode"
             android:summary="@string/whitelist_apps_setting_summary"
-            android:title="@string/whitelist_apps_setting_text"/>
+            android:title="@string/whitelist_apps_setting_text" />
     </PreferenceCategory>
-    <PreferenceCategory android:title="Doze enhancements" android:key="dozeSettings">
+    <PreferenceCategory
+        android:key="dozeSettings"
+        android:title="Doze enhancements">
+        <SwitchPreference
+            android:defaultValue="false"
+            android:key="enableSensors"
+            android:summary="@string/enable_sensors_setting_summary"
+            android:title="@string/enable_sensors_setting_title" />
         <SwitchPreference
             android:defaultValue="false"
             android:key="turnOffWiFiInDoze"
