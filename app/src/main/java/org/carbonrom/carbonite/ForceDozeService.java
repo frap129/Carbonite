@@ -321,7 +321,6 @@ public class ForceDozeService extends Service {
         String command;
         try {
             String transactionCode = getTransactionCode(context);
-            if (Build.VERSION.SDK_INT > Build.VERSION_CODES.LOLLIPOP) {
                 SubscriptionManager mSubscriptionManager = (SubscriptionManager) context.getSystemService(Context.TELEPHONY_SUBSCRIPTION_SERVICE);
                 for (int i = 0; i < mSubscriptionManager.getActiveSubscriptionInfoCountMax(); i++) {
                     if (transactionCode != null && transactionCode.length() > 0) {
@@ -330,7 +329,6 @@ public class ForceDozeService extends Service {
                         executeCommand(command);
                     }
                 }
-            }
         } catch (Exception e) {
             Log.i(TAG, "Failed to toggle mobile data: " + e.getMessage());
         }
