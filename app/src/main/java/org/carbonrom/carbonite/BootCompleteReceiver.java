@@ -8,7 +8,8 @@ import android.preference.PreferenceManager;
 import android.util.Log;
 
 public class BootCompleteReceiver extends BroadcastReceiver {
-    public static String TAG = "ForceDoze";
+    public static String TAG = "Carbonite";
+
     @Override
     public void onReceive(Context context, Intent intent) {
         boolean isServiceEnabled = PreferenceManager.getDefaultSharedPreferences(context).getBoolean("serviceEnabled", false);

@@ -208,6 +208,18 @@ public class NumberPickerPreference extends Preference implements
     }
 
     private static class SavedState extends BaseSavedState {
+        // Standard creator object using an instance of this class
+        public static final Parcelable.Creator<SavedState> CREATOR =
+                new Parcelable.Creator<SavedState>() {
+
+                    public SavedState createFromParcel(Parcel in) {
+                        return new SavedState(in);
+                    }
+
+                    public SavedState[] newArray(int size) {
+                        return new SavedState[size];
+                    }
+                };
         // Member that holds the setting's value
         int value;
 
@@ -227,18 +239,5 @@ public class NumberPickerPreference extends Preference implements
             // Write the preference's value
             dest.writeInt(value);
         }
-
-        // Standard creator object using an instance of this class
-        public static final Parcelable.Creator<SavedState> CREATOR =
-                new Parcelable.Creator<SavedState>() {
-
-                    public SavedState createFromParcel(Parcel in) {
-                        return new SavedState(in);
-                    }
-
-                    public SavedState[] newArray(int size) {
-                        return new SavedState[size];
-                    }
-                };
     }
 }

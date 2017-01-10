@@ -35,12 +35,10 @@ import static android.preference.PreferenceManager.getDefaultSharedPreferences;
 
 public class ForceDozeService extends Service {
 
-    boolean isSuAvailable = false;
     boolean disableWhenCharging = true;
     boolean enableSensors = false;
     boolean useAutoRotateAndBrightnessFix = false;
     boolean ignoreLockscreenTimeout = false;
-    boolean useNonRootSensorWorkaround = false;
     boolean turnOffWiFiInDoze = false;
     boolean turnOffDataInDoze = false;
     boolean wasWiFiTurnedOn = false;
@@ -54,15 +52,32 @@ public class ForceDozeService extends Service {
     DozeReceiver localDozeReceiver;
     ReloadSettingsReceiver reloadSettingsReceiver;
     PendingIntentDozeReceiver pendingIntentDozeReceiver;
-    PendingIntent reenterDozePendingIntent;
     PowerManager pm;
     AlarmManager alarmManager;
     PowerManager.WakeLock tempWakeLock;
     Set<String> dozeUsageData;
-    String TAG = "ForceDozeService";
+    String TAG = "CarboniteService";
     String lastKnownState = "null";
 
     public ForceDozeService() {
+    }
+
+    private static String getTransactionCode(Context context) {
+        try {
+            final TelephonyManager mTelephonyManager = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
+            final Class<?> mTelephonyClass = Class.forName(mTelephonyManager.getClass().getName());
+            final Method mTelephonyMethod = mTelephonyClass.getDeclaredMethod("getITelephony");
+            mTelephonyMethod.setAccessible(true);
+            final Object mTelephonyStub = mTelephonyMethod.invoke(mTelephonyManager);
+            final Class<?> mTelephonyStubClass = Class.forName(mTelephonyStub.getClass().getName());
+            final Class<?> mClass = mTelephonyStubClass.getDeclaringClass();
+            final Field field = mClass.getDeclaredField("TRANSACTION_setDataEnabled");
+            field.setAccessible(true);
+            return String.valueOf(field.getInt(null));
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 
     @Override
@@ -87,33 +102,13 @@ public class ForceDozeService extends Service {
         turnOffDataInDoze = getDefaultSharedPreferences(getApplicationContext()).getBoolean("turnOffDataInDoze", false);
         turnOffWiFiInDoze = getDefaultSharedPreferences(getApplicationContext()).getBoolean("turnOffWiFiInDoze", false);
         ignoreLockscreenTimeout = getDefaultSharedPreferences(getApplicationContext()).getBoolean("ignoreLockscreenTimeout", true);
-        useNonRootSensorWorkaround = getDefaultSharedPreferences(getApplicationContext()).getBoolean("useNonRootSensorWorkaround", false);
         dozeEnterDelay = getDefaultSharedPreferences(getApplicationContext()).getInt("dozeEnterDelay", 0);
         useAutoRotateAndBrightnessFix = getDefaultSharedPreferences(getApplicationContext()).getBoolean("autoRotateAndBrightnessFix", false);
         enableSensors = getDefaultSharedPreferences(getApplicationContext()).getBoolean("enableSensors", false);
         disableWhenCharging = getDefaultSharedPreferences(getApplicationContext()).getBoolean("disableWhenCharging", true);
-        isSuAvailable = getDefaultSharedPreferences(getApplicationContext()).getBoolean("isSuAvailable", false);
         dozeUsageData = PreferenceManager.getDefaultSharedPreferences(getApplicationContext()).getStringSet("dozeUsageDataAdvanced", new LinkedHashSet<String>());
 
-        if (!Utils.isDumpPermissionGranted(getApplicationContext())) {
-            if (isSuAvailable) {
-                grantDumpPermission();
-            }
-        }
-
-        if (!Utils.isDevicePowerPermissionGranted(getApplicationContext())) {
-            if (isSuAvailable) {
-                grantDevicePowerPermission();
-            }
-        }
-
-        if (!Utils.isReadPhoneStatePermissionGranted(getApplicationContext())) {
-            if (isSuAvailable) {
-                grantReadPhoneStatePermission();
-            }
-        }
     }
-
 
     @Override
     public IBinder onBind(Intent intent) {
@@ -159,19 +154,7 @@ public class ForceDozeService extends Service {
         Log.i(TAG, "enableSensors: " + enableSensors);
         disableWhenCharging = getDefaultSharedPreferences(getApplicationContext()).getBoolean("disableWhenCharging", true);
         Log.i(TAG, "disableWhenCharging: " + disableWhenCharging);
-        useNonRootSensorWorkaround = getDefaultSharedPreferences(getApplicationContext()).getBoolean("useNonRootSensorWorkaround", false);
-        Log.i(TAG, "useNonRootSensorWorkaround: " + useNonRootSensorWorkaround);
         Log.i(TAG, "ForceDoze settings reloaded ----------------------------------");
-    }
-
-    public void grantDumpPermission() {
-        Log.i(TAG, "Granting android.permission.DUMP to org.carbonrom.carbonite");
-        executeCommand("pm grant org.carbonrom.carbonite android.permission.DUMP");
-    }
-
-    public void grantDevicePowerPermission() {
-        Log.i(TAG, "Granting android.permission.DEVICE_POWER to org.carbonrom.carbonite");
-        executeCommand("pm grant org.carbonrom.carbonite android.permission.DEVICE_POWER");
     }
 
     public void grantReadPhoneStatePermission() {
@@ -201,18 +184,18 @@ public class ForceDozeService extends Service {
                 dozeUsageData.add(Long.toString(System.currentTimeMillis()).concat(",").concat(Float.toString(Utils.getBatteryLevel2(getApplicationContext()))).concat(",").concat("ENTER"));
                 saveDozeDataStats();
 
-                    if (!enableSensors) {
-                        disableSensorsTimer = new Timer();
-                        disableSensorsTimer.schedule(new TimerTask() {
-                            @Override
-                            public void run() {
-                                Log.i(TAG, "Disabling motion sensors");
-                                executeCommand("dumpsys sensorservice restrict");
-                            }
-                        }, 2000);
-                    } else {
-                        Log.i(TAG, "Not disabling motion sensors because enableSensors=true");
-                    }
+                if (!enableSensors) {
+                    disableSensorsTimer = new Timer();
+                    disableSensorsTimer.schedule(new TimerTask() {
+                        @Override
+                        public void run() {
+                            Log.i(TAG, "Disabling motion sensors");
+                            executeCommand("dumpsys sensorservice restrict");
+                        }
+                    }, 2000);
+                } else {
+                    Log.i(TAG, "Not disabling motion sensors because enableSensors=true");
+                }
 
                 if (turnOffWiFiInDoze) {
                     wasWiFiTurnedOn = Utils.isWiFiEnabled(context);
@@ -248,27 +231,17 @@ public class ForceDozeService extends Service {
         dozeUsageData.add(Long.toString(System.currentTimeMillis()).concat(",").concat(Float.toString(Utils.getBatteryLevel2(getApplicationContext()))).concat(",").concat("EXIT"));
         saveDozeDataStats();
 
-            if (!enableSensors) {
-                enableSensorsTimer = new Timer();
-                enableSensorsTimer.schedule(new TimerTask() {
-                    @Override
-                    public void run() {
-                        Log.i(TAG, "Re-enabling motion sensors");
-                        executeCommand("dumpsys sensorservice enable");
-                        autoRotateBrightnessFix();
-                    }
-                }, 2000);
-            }
-
-        if (useNonRootSensorWorkaround) {
-            try {
-                reenterDozePendingIntent.cancel();
-                alarmManager.cancel(reenterDozePendingIntent);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+        if (!enableSensors) {
+            enableSensorsTimer = new Timer();
+            enableSensorsTimer.schedule(new TimerTask() {
+                @Override
+                public void run() {
+                    Log.i(TAG, "Re-enabling motion sensors");
+                    executeCommand("dumpsys sensorservice enable");
+                    autoRotateBrightnessFix();
+                }
+            }, 2000);
         }
-
     }
 
     public String executeCommand(final String command) {
@@ -276,23 +249,22 @@ public class ForceDozeService extends Service {
         AsyncTask.execute(new Runnable() {
             @Override
             public void run() {
-              try {
-                Process p = Runtime.getRuntime().exec("/system/bin/sh");
-                DataOutputStream os = new DataOutputStream(p.getOutputStream());
-                os.writeBytes(command+"\n");
-                os.writeBytes("exit\n");
-                os.flush();
-                BufferedReader bufferedReader = new BufferedReader(
-                        new InputStreamReader(p.getInputStream()));
-                String line;
-                while ((line = bufferedReader.readLine()) != null) {
-                    log.append(line + "\n");
-                }
+                try {
+                    Process p = Runtime.getRuntime().exec("/system/bin/sh");
+                    DataOutputStream os = new DataOutputStream(p.getOutputStream());
+                    os.writeBytes(command + "\n");
+                    os.writeBytes("exit\n");
+                    os.flush();
+                    BufferedReader bufferedReader = new BufferedReader(
+                            new InputStreamReader(p.getInputStream()));
+                    String line;
+                    while ((line = bufferedReader.readLine()) != null) {
+                        log.append(line + "\n");
+                    }
 
-              }
-              catch (IOException e){
+                } catch (IOException e) {
                     e.printStackTrace();
-              }
+                }
             }
         });
         return log.toString();
@@ -361,24 +333,6 @@ public class ForceDozeService extends Service {
             }
         } catch (Exception e) {
             Log.i(TAG, "Failed to toggle mobile data: " + e.getMessage());
-        }
-    }
-
-    private static String getTransactionCode(Context context) {
-        try {
-            final TelephonyManager mTelephonyManager = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
-            final Class<?> mTelephonyClass = Class.forName(mTelephonyManager.getClass().getName());
-            final Method mTelephonyMethod = mTelephonyClass.getDeclaredMethod("getITelephony");
-            mTelephonyMethod.setAccessible(true);
-            final Object mTelephonyStub = mTelephonyMethod.invoke(mTelephonyManager);
-            final Class<?> mTelephonyStubClass = Class.forName(mTelephonyStub.getClass().getName());
-            final Class<?> mClass = mTelephonyStubClass.getDeclaringClass();
-            final Field field = mClass.getDeclaredField("TRANSACTION_setDataEnabled");
-            field.setAccessible(true);
-            return String.valueOf(field.getInt(null));
-        } catch (Exception e) {
-            e.printStackTrace();
-            return null;
         }
     }
 
@@ -594,17 +548,6 @@ public class ForceDozeService extends Service {
                         }
 
                         maintenance = false;
-                    }
-                }
-
-                if (useNonRootSensorWorkaround) {
-                    if (!setPendingDozeEnterAlarm) {
-                        if (!Utils.isScreenOn(context) && (!getDeviceIdleState().equals("IDLE") || !getDeviceIdleState().equals("IDLE_MAINTENANCE"))) {
-                            Log.i(TAG, "Device gone out of Doze, scheduling pendingIntent for enterDoze in 15 mins");
-                            reenterDozePendingIntent = PendingIntent.getBroadcast(context, 1, new Intent(context, ReenterDoze.class), PendingIntent.FLAG_CANCEL_CURRENT);
-                            alarmManager.setExactAndAllowWhileIdle(AlarmManager.RTC_WAKEUP, System.currentTimeMillis() + 900000, reenterDozePendingIntent);
-                            setPendingDozeEnterAlarm = true;
-                        }
                     }
                 }
             }

@@ -8,7 +8,7 @@ import android.util.Log;
 
 public class SettingsChangeReceiver extends BroadcastReceiver {
 
-    public static String TAG = "ForceDoze";
+    public static String TAG = "Carbonite";
 
     @Override
     public void onReceive(Context context, Intent intent) {

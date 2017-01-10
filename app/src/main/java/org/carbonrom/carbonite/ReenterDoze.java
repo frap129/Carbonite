@@ -8,7 +8,7 @@ import android.util.Log;
 
 public class ReenterDoze extends BroadcastReceiver {
 
-    public static String TAG = "ForceDoze";
+    public static String TAG = "Carbonite";
 
     public ReenterDoze() {
     }

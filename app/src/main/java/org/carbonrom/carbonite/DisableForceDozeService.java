@@ -9,6 +9,7 @@ import android.util.Log;
 
 public class DisableForceDozeService extends BroadcastReceiver {
     public static String TAG = "ForceDoze";
+
     @Override
     public void onReceive(Context context, Intent intent) {
         Log.i(TAG, "org.carbonrom.carbonite.DISABLE_FORCEDOZE broadcast intent received");
