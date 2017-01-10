@@ -8,7 +8,7 @@ import android.preference.PreferenceManager;
 import android.util.Log;
 
 public class DisableForceDozeService extends BroadcastReceiver {
-    public static String TAG = "ForceDoze";
+    public static String TAG = "Carbonite";
 
     @Override
     public void onReceive(Context context, Intent intent) {

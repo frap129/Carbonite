@@ -20,13 +20,10 @@ public class MainActivity extends Activity implements CompoundButton.OnCheckedCh
     public static String TAG = "Carbonite";
     SharedPreferences settings;
     SharedPreferences.Editor editor;
-    Boolean isDozeEnabledByOEM = true;
-    Boolean isSuAvailable = false;
     Boolean isDozeDisabled = false;
     Boolean serviceEnabled = false;
     Boolean isDumpPermGranted = false;
     Boolean ignoreLockscreenTimeout = true;
-    Boolean showDonateDevDialog = true;
     Switch toggleForceDozeSwitch;
 
     @Override
@@ -34,11 +31,8 @@ public class MainActivity extends Activity implements CompoundButton.OnCheckedCh
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         settings = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
-        isDozeEnabledByOEM = Utils.checkForAutoPowerModesFlag();
-        showDonateDevDialog = settings.getBoolean("showDonateDevDialog1", true);
         serviceEnabled = settings.getBoolean("serviceEnabled", false);
         isDozeDisabled = settings.getBoolean("isDozeDisabled", false);
-        isSuAvailable = settings.getBoolean("isSuAvailable", false);
         ignoreLockscreenTimeout = settings.getBoolean("ignoreLockscreenTimeout", true);
         toggleForceDozeSwitch = (Switch) findViewById(R.id.switch1);
         isDumpPermGranted = Utils.isDumpPermissionGranted(getApplicationContext());
