@@ -26,10 +26,7 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e214ad9b-110a-4d66-bb80-31ec46620620" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/org/carbonrom/carbonite/MainActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/org/carbonrom/carbonite/MainActivity.java" />
-    </list>
+    <list default="true" id="e214ad9b-110a-4d66-bb80-31ec46620620" name="Default" comment="" />
     <ignored path="ForceDoze.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -2244,7 +2241,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="60" y="0" width="1220" height="1024" extended-state="0" />
+    <frame x="60" y="0" width="1220" height="1024" extended-state="1" />
     <editor active="true" />
     <layout>
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
